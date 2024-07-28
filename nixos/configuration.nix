@@ -44,22 +44,6 @@
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
- # programs = {
- #   zsh = {
- #     enable = true;
- #     autosuggestions.enable = true;
- #     zsh-autoenv.enable = true;
- #     syntaxHighlighting.enable = true;
- #     ohMyZsh = {
- #       enable = true;
- #       theme = "kolo";
- #       plugins = [
- #         "git"
- #       ];
- #     };
- #   };
- # };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -127,12 +111,27 @@
   environment.systemPackages = with pkgs; [
     home-manager
     vim
-    wget
     neovim
+
+    # Dev Utils
+    git
+    bottom
+    ranger
+    wget
+    tldr
+
+    # Dev
     gcc
     conda
     firefox
+    gnumake
+    cmake
+    go
+    cargo
+    rustup
+    python3
 
+    # System
     dmenu
     rofi-wayland
     grim
@@ -141,19 +140,6 @@
     networkmanagerapplet
     pavucontrol
     libnotify
-
-    gnumake
-    cmake
-    go
-    cargo
-    rustup
-    python3
-    bat
-    ranger
-    vesktop
-    tldr
-    btop
-    thefuck
   ];
 
   fonts.packages = with pkgs; [

@@ -65,6 +65,8 @@
     };
   };
 
+  programs.ripgrep.enable = true;
+
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -76,10 +78,11 @@
     shellAliases = {
       ls = "exa";
       sl = "exa";
-      l = "exa -l";
-      la = "exa -la";
+      l = "exa -la";
+      la = "exa --all";
       ip = "ip --color=auto";
       c = "clear";
+      grep = "rg";
     };
 
     oh-my-zsh = {
@@ -97,6 +100,7 @@
     enable = true;
     enableZshIntegration = true;
   };
+
 
   programs.git = {
     enable = true;
@@ -123,6 +127,10 @@
     borderSize = 2;
     textColor = "#${base04}";
     layer = "overlay";
+  };
+
+  programs.bottom = {
+    enable = true;
   };
 
   programs.home-manager.enable = true;
