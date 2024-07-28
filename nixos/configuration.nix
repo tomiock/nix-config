@@ -96,11 +96,8 @@
     pulse.enable = true;
   };
 
-
-  # Configure console keymap
   console.keyMap = "us";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tominix = {
     isNormalUser = true;
     description = "tominix";
@@ -112,6 +109,7 @@
     home-manager
     vim
     neovim
+
 
     # Dev Utils
     git
