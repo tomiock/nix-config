@@ -56,12 +56,12 @@
       base07 = "#edecee"; ## ++++ light
       orange = "#A92258"; ## orange
       yellow = "#f3ff85"; ## yellow
-       green = "#61ff7b"; ## poison green
-    turquois = "#61ffca"; ## turquois
-        aqua = "#0fd3ff"; ## aqua
+      green = "#61ff7b"; ## poison green
+      turquois = "#61ffca"; ## turquois
+      aqua = "#0fd3ff"; ## aqua
       purple = "#970fff"; ## purple
-        pink = "#953B9D"; ## pink
-         red = "#ff6767"; ## light red
+      pink = "#953B9D"; ## pink
+      red = "#ff6767"; ## light red
     };
   };
 
