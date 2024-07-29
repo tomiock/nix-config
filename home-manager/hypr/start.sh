@@ -3,7 +3,7 @@
 nm-applet --indicator &
 pa-applet --indicator &
 
-swaybg --image ".config/hypr/wallpapers/3.jpg" --mode fill &
+swaybg --image "${HOME}/.config/hypr/wallpapers/3.jpg" --mode fill &
 
 waybar &
 

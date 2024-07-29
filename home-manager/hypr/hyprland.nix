@@ -1,5 +1,20 @@
 { pkgs, inputs, outputs, lib, config, ... }:
+let rootPath = ../.;
+in
 {
+
+  home.packages = [
+    pkgs.swaybg
+  ];
+
+  home.file = {
+    start = {
+      enable = true;
+      target = "\"$HOME\"/.config/hypr/";
+      source = rootPath + /hypr/start.sh;
+    };
+  };
+
   # enable in NixOS config also (programs.hyprland.enable = true)
   wayland.windowManager.hyprland = {
     enable = true;
@@ -12,6 +27,7 @@
     */
 
     settings = {
+
 
       monitor =
         [
@@ -120,7 +136,9 @@
         "SUPER,tab,changegroupactive"
       ];
 
-      exec-once = "bash ~/.config/hypr/start.sh";
+      exec-once = [
+        "bash $HOME/nixconfig/home-manager/hypr/start.sh"
+      ];
     };
   };
 }
