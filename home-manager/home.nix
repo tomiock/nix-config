@@ -33,8 +33,13 @@
     TERMINAL = "alacritty";
   };
 
+  home.packages = [
+    pkgs.vesktop
+  ];
+
   programs.eza.enable = true;
   programs.zoxide.enable = true;
+  programs.zoxide.enableZshIntegration = true;
   programs.bat.enable = true;
 
   colorScheme = {
@@ -80,6 +85,7 @@
       c = "clear";
       grep = "rg";
       cat = "bat --style plain";
+      cd = "z";
     };
 
     oh-my-zsh = {
@@ -143,7 +149,6 @@
   programs.bottom = {
     enable = true;
   };
-
 
   programs.home-manager.enable = true;
 
