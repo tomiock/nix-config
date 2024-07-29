@@ -116,6 +116,7 @@
     ranger
     wget
     tldr
+    unzip
 
     # Dev
     gcc
@@ -134,6 +135,7 @@
     dmenu
     rofi-wayland
     grim
+    slurp
     swaylock
     wl-clipboard
     pavucontrol

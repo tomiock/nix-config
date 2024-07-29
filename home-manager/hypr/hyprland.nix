@@ -88,7 +88,7 @@ in
 
       bind = [
         "SUPER,RETURN,exec,alacritty"
-        ",Print,exec,~/.config/hypr/scripts/screenshot"
+        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
         "SUPER SHIFT,Q,killactive,"
         "SUPER SHIFT,E,exit,"
         "SUPER,S,togglefloating,"

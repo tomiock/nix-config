@@ -35,6 +35,7 @@
 
   programs.eza.enable = true;
   programs.zoxide.enable = true;
+  programs.bat.enable = true;
 
   colorScheme = {
     slug = "tomiock";
@@ -78,6 +79,7 @@
       ip = "ip --color=auto";
       c = "clear";
       grep = "rg";
+      cat = "bat --style plain";
     };
 
     oh-my-zsh = {
@@ -95,7 +97,6 @@
     enable = true;
     enableZshIntegration = true;
   };
-
 
   programs.git = {
     enable = true;
@@ -142,6 +143,7 @@
   programs.bottom = {
     enable = true;
   };
+
 
   programs.home-manager.enable = true;
 
