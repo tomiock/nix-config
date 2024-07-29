@@ -1,11 +1,20 @@
-{ inputs, outputs, lib, config, ... }:
+{ pkgs, inputs, outputs, lib, config, ... }:
 {
   # enable in NixOS config also (programs.hyprland.enable = true)
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.variables = ["--all"];
+    systemd.variables = [ "--all" ];
+
+    /*
+      plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      ];
+    */
 
     settings = {
+
+      monitor = ",preferred,auto,1";
+
       input = {
         kb_layout = "us";
         follow_mouse = 1;
@@ -57,8 +66,6 @@
         workspace_swipe_fingers = 4;
       };
 
-      monitor = ",preferred,auto,auto";
-
       bind = [
         "SUPER,RETURN,exec,alacritty"
         ",Print,exec,~/.config/hypr/scripts/screenshot"
@@ -108,6 +115,8 @@
         "SUPER,g,togglegroup"
         "SUPER,tab,changegroupactive"
       ];
+
+      exec-once = "bash ~/.config/hypr/start.sh";
     };
   };
 }

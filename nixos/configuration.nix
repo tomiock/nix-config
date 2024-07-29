@@ -110,7 +110,6 @@
     vim
     neovim
 
-
     # Dev Utils
     git
     bottom
