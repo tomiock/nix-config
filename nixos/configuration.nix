@@ -119,6 +119,8 @@
 
     # Dev
     gcc
+    clang
+    llvm
     conda
     firefox
     gnumake
@@ -134,7 +136,6 @@
     grim
     swaylock
     wl-clipboard
-    networkmanagerapplet
     pavucontrol
     libnotify
   ];
