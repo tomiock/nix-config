@@ -13,7 +13,11 @@
 
     settings = {
 
-      monitor = ",preferred,auto,1";
+      monitor =
+        [
+          ",preferred,auto,auto"
+          "desc:Chimei Innolux Corporation 0x1552,preferred,auto-down,1"
+        ];
 
       input = {
         kb_layout = "us";
