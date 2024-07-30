@@ -41,6 +41,9 @@
 
   home.packages = [
     pkgs.vesktop
+    pkgs.vlc
+    # pkgs.kdePackages.kdenlive
+    # pkgs.obsidian-export
   ];
 
   programs.eza.enable = true;

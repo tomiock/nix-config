@@ -49,6 +49,7 @@
   };
 
   xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-hyprland
     xdg-desktop-portal-wlr
     xdg-desktop-portal-kde
     xdg-desktop-portal-gtk
@@ -160,6 +161,7 @@
     slurp
     swaylock
     wl-clipboard
+    wf-recorder
 
     qt6.qtwayland
     qt5.qtwayland

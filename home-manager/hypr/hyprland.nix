@@ -5,15 +5,21 @@ in
 
   home.packages = [
     pkgs.swaybg
+    (pkgs.writeShellScriptBin "start_hyprland"
+    ''
+      #!/usr/bin/env bash
+
+        nm-applet --indicator &
+        pa-applet --indicator &
+
+        swaybg --image "/home/tominix/.config/hypr/wallpapers/3.jpg" --mode fill &
+
+        waybar &
+
+        mako &
+    '')
   ];
 
-  home.file = {
-    start = {
-      enable = true;
-      target = "\"$HOME\"/.config/hypr/";
-      source = rootPath + /hypr/start.sh;
-    };
-  };
 
   # enable in NixOS config also (programs.hyprland.enable = true)
   wayland.windowManager.hyprland = {
@@ -139,7 +145,7 @@ in
       ];
 
       exec-once = [
-        "bash $HOME/nixconfig/home-manager/hypr/start.sh"
+        "bash start_hyprland"
       ];
     };
   };
