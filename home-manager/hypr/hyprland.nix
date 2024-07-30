@@ -18,6 +18,8 @@ in
   # enable in NixOS config also (programs.hyprland.enable = true)
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
+    systemd.enable = true;
     systemd.variables = [ "--all" ];
 
     /*

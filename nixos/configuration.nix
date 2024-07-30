@@ -36,8 +36,23 @@
   programs.hyprland.enable = true;
   programs.sway.enable = true;
 
-  # xdg.portal.wlr.enable = true;
-  # xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  xdg.portal = {
+    wlr = {
+      enable = true;
+    };
+  };
+
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-wlr
+    xdg-desktop-portal-kde
+    xdg-desktop-portal-gtk
+  ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -105,10 +120,16 @@
     packages = with pkgs; [ ];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   environment.systemPackages = with pkgs; [
     home-manager
     vim
     neovim
+    firefox
+    obsidian # disable GPU acc
 
     # Dev Utils
     git
@@ -123,13 +144,14 @@
     clang
     llvm
     conda
-    firefox
     gnumake
     cmake
     go
     cargo
     rustup
     python3
+    python311Packages.pip
+    luajitPackages.luarocks-nix
 
     # System
     dmenu
@@ -138,8 +160,14 @@
     slurp
     swaylock
     wl-clipboard
+
+    qt6.qtwayland
+    qt5.qtwayland
+    libsForQt5.qtstyleplugin-kvantum
+
     pavucontrol
     libnotify
+    filelight
   ];
 
   fonts.packages = with pkgs; [
@@ -165,12 +193,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  # do NOT CHANGE
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
