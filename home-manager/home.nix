@@ -81,7 +81,7 @@
     enable = true;
     autocd = true;
 
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
 
@@ -102,10 +102,12 @@
       theme = "kolo";
       plugins = [
         "git"
-        "thefuck"
       ];
     };
+  };
 
+  programs.thefuck = {
+    enable = true;
   };
 
   programs.fzf = {
@@ -148,7 +150,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "gtk3";
+    platformTheme.name = "gtk3";
   };
 
   services.mako = with config.colorScheme.palette; {
