@@ -97,7 +97,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "es";
-    xkbVariant = "";
+    variant = "";
   };
 
   services.printing.enable = true;
@@ -151,8 +151,6 @@
     cargo
     rustup
     python3
-    python311Packages.pip
-    luajitPackages.luarocks-nix
 
     # System
     dmenu

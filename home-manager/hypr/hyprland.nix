@@ -51,8 +51,8 @@ in
 
       general = {
         sensitivity = 1.0;
-        gaps_in = 5;
-        gaps_out = 5;
+        gaps_in = 0;
+        gaps_out = 0;
         border_size = 3;
         "col.active_border" = "rgba(d469ffee) rgba(970fffee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";

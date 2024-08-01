@@ -42,6 +42,7 @@
   home.packages = [
     pkgs.vesktop
     pkgs.vlc
+    pkgs.uv
     # pkgs.kdePackages.kdenlive
     # pkgs.obsidian-export
   ];
@@ -95,6 +96,7 @@
       grep = "rg";
       cat = "bat --style plain";
       cd = "z";
+      pip = "uv";
     };
 
     oh-my-zsh = {
