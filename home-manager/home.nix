@@ -13,7 +13,7 @@
     ./firefox.nix
     ./alacritty.nix
     ./waybar.nix
-    ./hypr/hyprland.nix
+    ./hyprland.nix
     ./neovim.nix
   ];
 
