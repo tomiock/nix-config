@@ -43,6 +43,7 @@
     pkgs.vesktop
     pkgs.vlc
     pkgs.uv
+    pkgs.tmate
     # pkgs.kdePackages.kdenlive
     # pkgs.obsidian-export
   ];
@@ -106,6 +107,22 @@
         "git"
       ];
     };
+  };
+  programs.tmux = {
+    enable = true;
+    baseIndex = 1;
+    keyMode = "vi";
+    mouse = true;
+    shortcut = "a";
+    sensibleOnTop = true;
+
+    extraConfig = ''
+
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+      bind c new-window -c "#{pane_current_path}"
+
+    '';
   };
 
   programs.thefuck = {
