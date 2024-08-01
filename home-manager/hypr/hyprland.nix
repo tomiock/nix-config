@@ -39,7 +39,7 @@ in
 
       monitor =
         [
-          ",preferred,auto,auto"
+          #",preferred,auto,auto"
           "desc:Chimei Innolux Corporation 0x1552,preferred,auto-down,1"
         ];
 
