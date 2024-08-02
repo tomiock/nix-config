@@ -142,6 +142,8 @@
       pu = "push";
       cm = "commit";
       s = "status";
+      d = "diff";
+      ds = "diff --staged";
     };
   };
 
