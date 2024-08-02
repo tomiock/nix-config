@@ -141,12 +141,6 @@
     unzip
 
     # Dev
-    gcc
-    clang
-    llvm
-    conda
-    gnumake
-    cmake
     go
     cargo
     rustup

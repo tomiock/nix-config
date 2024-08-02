@@ -163,8 +163,8 @@ in {
         #workspaces button {
           background-color: #323232; /* dark gray */
           color: #FFFFFF; /* white */
-          padding-left: 0.4em;
-          padding-right: 0.4em;
+          padding-left: 0.1em;
+          padding-right: 0.1em;
           margin-top: 0.15em;
           margin-bottom: 0.15em;
         }
