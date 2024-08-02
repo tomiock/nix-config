@@ -4,21 +4,35 @@ in
 {
 
   home.packages = [
-    pkgs.swaybg
+    pkgs.networkmanagerapplet
     (pkgs.writeShellScriptBin "start_hyprland"
     ''
       #!/usr/bin/env bash
 
         nm-applet --indicator &
-        pa-applet --indicator &
 
-        swaybg --image "/home/tominix/Pictures/Tokyo_Pink.png" --mode fill &
-
-        waybar &
+      #waybar &
 
         mako &
     '')
   ];
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "off";
+      splash = true;
+      #splash_offset = 2.0;
+
+      preload =
+        ["~/Pictures/Tokyo_Pink.png"];
+
+      wallpaper = [
+        "eDP-1,~/Pictures/Tokyo_Pink.png"
+        "DP-1,~/Pictures/Tokyo_Pink.png"
+      ];
+    };
+  };
 
 
   # enable in NixOS config also (programs.hyprland.enable = true)
