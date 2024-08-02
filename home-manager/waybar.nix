@@ -6,8 +6,6 @@
   inputs,
   ...
 }: let
-  commonDeps = with pkgs; [coreutils gnugrep systemd];
-
   swayCfg = config.wayland.windowManager.sway;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in {
@@ -136,9 +134,7 @@ in {
     # x y -> vertical, horizontal
     # x y z -> top, horizontal, bottom
     # w x y z -> top, right, bottom, left
-    style = let
-      inherit (config.colorscheme) colors;
-    in
+    style =
         ''
        * {
           font-family: Arial, Courier New;
@@ -165,6 +161,8 @@ in {
           color: #FFFFFF; /* white */
           padding-left: 0.1em;
           padding-right: 0.1em;
+          margin-left: 0.1em;
+          margin-right: 0.1em;
           margin-top: 0.15em;
           margin-bottom: 0.15em;
         }

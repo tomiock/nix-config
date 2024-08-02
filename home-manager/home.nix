@@ -91,7 +91,7 @@
       ls = "exa";
       sl = "exa";
       l = "exa -la";
-      la = "exa --all";
+      la = "exa --all --oneline";
       ip = "ip --color=auto";
       c = "clear";
       grep = "rg";
