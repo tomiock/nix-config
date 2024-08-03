@@ -6,6 +6,18 @@
   inputs,
   ...
 }: let
+  commonDeps = with pkgs; [coreutils gnugrep systemd];
+    mkScript = {
+    name ? "script",
+    deps ? [],
+    script ? "",
+  }:
+    lib.getExe (pkgs.writeShellApplication {
+      inherit name;
+      text = script;
+      runtimeInputs = commonDeps ++ deps;
+    });
+
   swayCfg = config.wayland.windowManager.sway;
   hyprlandCfg = config.wayland.windowManager.hyprland;
 in {
@@ -40,6 +52,7 @@ in {
           "cpu"
           "memory"
           "clock"
+          "battery"
         ];
 
         modules-right = [
@@ -88,7 +101,7 @@ in {
           };
         };
         battery = {
-          bat = "BAT0";
+          bat = "BAT1";
           interval = 10;
           format-icons = [
             "󰁺"
@@ -119,14 +132,9 @@ in {
             {ipaddr}/{cidr}
             Up: {bandwidthUpBits}
             Down: {bandwidthDownBits}'';
-          on-click = lib.getExe pkgs.networkmanagerapplet;
+          on-click = mkScript { script = ''ip -o route get to 8.8.8.8 | sed -n "s/.*src \([0-9.]\+\).*/\1/p"| wl-copy''; };
         };
-        /*
-        "custom/hostname" = {
-          exec = mkScript {script = ''echo "$USER@$HOSTNAME"'';};
-          on-click = mkScript {script = "systemctl --user restart waybar";};
-        };
-        */
+
       };
     };
     # Cheatsheet:
