@@ -14,6 +14,7 @@
     ./alacritty.nix
     ./waybar.nix
     ./hyprland.nix
+    ./sway.nix
     ./neovim.nix
   ];
 
