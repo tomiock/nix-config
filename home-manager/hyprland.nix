@@ -16,6 +16,16 @@ in
 
         mako &
     '')
+    (pkgs.writeShellScriptBin "video_record"
+    ''
+      #!/usr/bin/env bash
+
+        timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+
+        output_file="video_$\{timestamp\}.mp4"
+
+        wf-recorder -g "$(slurp)" --file "$output_file"
+    '')
   ];
 
   services.hyprpaper = {
@@ -112,6 +122,7 @@ in
       bind = [
         "SUPER,RETURN,exec,alacritty"
         ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
+        ",Print SHIFT,exec,bash video_record"
         "SUPER SHIFT,Q,killactive,"
         "SUPER SHIFT,E,exit,"
         "SUPER,S,togglefloating,"
