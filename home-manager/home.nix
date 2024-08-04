@@ -24,8 +24,8 @@
   };
 
   home = {
-    username = "tominix";
-    homeDirectory = "/home/tominix";
+    username = "tomiock";
+    homeDirectory = "/home/tomiock";
   };
 
   home.sessionVariables = {
