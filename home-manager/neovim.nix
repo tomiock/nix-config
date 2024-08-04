@@ -4,6 +4,9 @@
     pkgs.nil
     pkgs.python311Packages.python-lsp-server
     pkgs.luajitPackages.lua-lsp
+    pkgs.luajitPackages.luarocks
+    pkgs.tree-sitter
+    pkgs.nodejs_22
   ];
 
   programs.neovim = {
