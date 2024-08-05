@@ -64,7 +64,7 @@
           ];
         };
 
-        "tominix@atenea" = home-manager.lib.homeManagerConfiguration {
+        "tomiock@atenea" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [

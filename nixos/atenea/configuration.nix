@@ -114,9 +114,9 @@
 
   console.keyMap = "us";
 
-  users.users.tominix = {
+  users.users.tomiock = {
     isNormalUser = true;
-    description = "tominix";
+    description = "tomiock";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [ ];
   };
@@ -130,7 +130,7 @@
     vim
     neovim
     firefox
-    obsidian # disable GPU acc
+    #obsidian # disable GPU acc
 
     # Dev Utils
     git
@@ -144,6 +144,8 @@
     go
     cargo
     rustup
+    gcc
+    zig
     python3
 
     # System
@@ -188,6 +190,6 @@
   # networking.firewall.enable = false;
 
   # do NOT CHANGE
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
 }
