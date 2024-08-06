@@ -45,6 +45,7 @@
     pkgs.vlc
     pkgs.uv
     pkgs.tmate
+    pkgs.obsidian
     # pkgs.kdePackages.kdenlive
     # pkgs.obsidian-export
   ];
