@@ -36,11 +36,11 @@ in
       #splash_offset = 2.0;
 
       preload =
-        ["~/Pictures/Tokyo_Pink.png"];
+        ["~/personal/wallpaper.jpg"];
 
       wallpaper = [
-        "eDP-1,~/Pictures/Tokyo_Pink.png"
-        "DP-1,~/Pictures/Tokyo_Pink.png"
+        "eDP-1,~/personal/wallpaper.jpg"
+        "DP-1,~/personal/wallpaper.jpg"
       ];
     };
   };
