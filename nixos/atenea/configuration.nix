@@ -117,7 +117,7 @@
   users.users.tomiock = {
     isNormalUser = true;
     description = "tomiock";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
   };
 
@@ -130,7 +130,6 @@
     vim
     neovim
     firefox
-    #obsidian # disable GPU acc
 
     # Dev Utils
     git
@@ -166,6 +165,8 @@
     filelight
   ];
 
+  virtualisation.docker.enable = true;
+
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
@@ -191,5 +192,4 @@
 
   # do NOT CHANGE
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
