@@ -46,7 +46,10 @@
     pkgs.uv
     pkgs.tmate
     pkgs.obsidian
-    # pkgs.kdePackages.kdenlive
+    pkgs.papers # PDF
+    pkgs.gnome.eog # IMAGES
+    pkgs.kdePackages.kdenlive
+
     # pkgs.obsidian-export
   ];
 
@@ -100,6 +103,8 @@
       cat = "bat --style plain";
       cd = "z";
       pip = "uv";
+      open = "papers";
+      view = "eog";
     };
 
     oh-my-zsh = {
