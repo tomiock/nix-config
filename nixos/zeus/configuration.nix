@@ -121,6 +121,8 @@
     packages = with pkgs; [ ];
   };
 
+  nix.settings.trusted-users = ["nixremote"];
+
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
   ];
