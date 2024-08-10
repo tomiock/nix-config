@@ -7,6 +7,7 @@
     pkgs.luajitPackages.luarocks
     pkgs.tree-sitter
     pkgs.nodejs_22
+    pkgs.rocmPackages_5.llvm.clang-tools-extra
   ];
 
   programs.neovim = {

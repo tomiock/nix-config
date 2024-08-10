@@ -11,6 +11,7 @@
         ublock-origin
       ];
 
+      search.force = true;
       search.engines = {
         "Nix Packages" = {
           urls = [{
