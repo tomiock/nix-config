@@ -157,9 +157,11 @@ in {
           background-color: rgba(50, 50, 50, 0.7); /* semi-transparent dark gray */
           color: #FFFFFF; /* white */
         }
+
         .modules-left {
           margin-left: -0.65em;
         }
+
         .modules-right {
           margin-right: -0.65em;
         }
@@ -174,13 +176,15 @@ in {
           margin-top: 0.15em;
           margin-bottom: 0.15em;
         }
+
         #workspaces button.hidden {
           background-color: #323232; /* dark gray */
           color: #A0A0A0; /* light gray */
         }
+        
         #workspaces button.focused,
         #workspaces button.active {
-          background-color: #d469ff; /* dodger blue */
+          background-color: #171717; /* dark gray */
           color: #FFFFFF; /* white */
         }
 
@@ -198,10 +202,12 @@ in {
           margin-right: 0;
           border-radius: 0.5em;
         }
+
         #custom-menu.fullscreen {
           background-color: #1E90FF; /* dodger blue */
           color: #FFFFFF; /* white */
         }
+
         #custom-hostname {
           background-color: #2C2C2C; /* darker gray */
           color: #1E90FF; /* dodger blue */
@@ -210,12 +216,15 @@ in {
           margin-left: 0;
           border-radius: 0.5em;
         }
+
         #custom-currentplayer {
           padding-right: 0;
         }
+
         #tray {
           color: #FFFFFF; /* white */
         }
+
         #custom-gpu, #cpu, #memory {
           margin-left: 0.05em;
           margin-right: 0.55em;

@@ -117,7 +117,7 @@
 
     initExtra = "
       if [[ -n $SSH_CONNECTION ]]; then
-        PROMPT='%B%F{magenta}%n@%m%c%B%F{green}\${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
+        PROMPT='%B%F{magenta}%n@%m %c%B%F{green}\${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
       else
         PROMPT='%B%F{magenta}%c%B%F{green}\${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
       fi
