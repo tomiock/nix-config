@@ -123,8 +123,11 @@ in
         "SUPER, mouse:273, resizewindow"
       ];
 
-      windowrule = [
-        "move cursor -50% -50%,^(alacritty)$"
+      windowrulev2 = [
+        "float, title:(Alacritty)$"
+        "size 50% 98%, class:(Alacritty)(.*)$, floating:0"
+        #"move 500, 900, title:(Alacritty)"
+        "tile, title:(Alacritty)$"
       ];
 
       bind = [
