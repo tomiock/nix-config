@@ -36,7 +36,7 @@ in {
         exclusive = true;
         height = 40;
         position = "bottom";
-        layer = "top";
+        layer = "bottom";
         modules-left =
           ["custom/menu"]
           ++ (lib.optionals swayCfg.enable [

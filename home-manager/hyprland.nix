@@ -133,8 +133,10 @@ in
         ",Print SHIFT,exec,bash video_record"
         "SUPER SHIFT,Q,killactive,"
         "SUPER SHIFT,E,exit,"
+
         "SUPER,S,togglefloating,"
         "SUPER,S,centerwindow,"
+
         "SUPER,D,exec,rofi -show drun -show-icons"
         "SUPER SHIFT,D,exec,rofi -show run"
         "SUPER,P,pseudo,"
