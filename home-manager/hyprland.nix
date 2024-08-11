@@ -61,7 +61,6 @@ in
 
     settings = {
 
-
       monitor =
         [
           #",preferred,auto,auto"
@@ -119,6 +118,15 @@ in
         workspace_swipe_fingers = 4;
       };
 
+      bindm = [
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
+      ];
+
+      windowrule = [
+        "move cursor -50% -50%,^(alacritty)$"
+      ];
+
       bind = [
         "SUPER,RETURN,exec,alacritty"
         ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
@@ -126,6 +134,7 @@ in
         "SUPER SHIFT,Q,killactive,"
         "SUPER SHIFT,E,exit,"
         "SUPER,S,togglefloating,"
+        "SUPER,S,centerwindow,"
         "SUPER,D,exec,rofi -show drun -show-icons"
         "SUPER SHIFT,D,exec,rofi -show run"
         "SUPER,P,pseudo,"

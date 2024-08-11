@@ -49,6 +49,7 @@
     pkgs.papers # PDF
     pkgs.gnome.eog # IMAGES
     pkgs.kdePackages.kdenlive
+    pkgs.gimp
 
     # pkgs.obsidian-export
   ];
