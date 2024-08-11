@@ -1,31 +1,38 @@
 { pkgs, inputs, outputs, lib, config, ... }:
 let rootPath = ../.;
 in
-{
+  {
 
   home.packages = [
     pkgs.networkmanagerapplet
     pkgs.brightnessctl
+
     (pkgs.writeShellScriptBin "start_hyprland"
-    ''
+      ''
       #!/usr/bin/env bash
 
-        nm-applet --indicator &
+      nm-applet --indicator &
 
-      #waybar &
+      mako &
+      '')
 
-        mako &
-    '')
     (pkgs.writeShellScriptBin "video_record"
-    ''
+      ''
       #!/usr/bin/env bash
 
-        timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
+      timestamp=$(date -u +"%Y_%m_%d__%H_%M_%S")
 
-        output_file="video_$\{timestamp\}.mp4"
+      output_file="video_''${timestamp}"
 
-        wf-recorder -g "$(slurp)" --file "$output_file"
-    '')
+      wf-recorder -g "$(slurp -d)" --file="$HOME/Videos/''${output_file}.mkv"
+
+      ffmpeg -i "$HOME/Videos/''${output_file}.mkv" -c:v libx264 -crf 20 -vf format=yuv420p "$HOME/Videos/''${output_file}.mp4"
+
+      rm "$HOME/Videos/''${output_file}.mkv"
+
+      notify-send "video stored"
+    ''
+    )
   ];
 
   services.hyprpaper = {
@@ -54,10 +61,10 @@ in
     systemd.variables = [ "--all" ];
 
     /*
-      plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      ];
-    */
+plugins = [
+inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+];
+*/
 
     settings = {
 
@@ -132,8 +139,11 @@ in
 
       bind = [
         "SUPER,RETURN,exec,alacritty"
-        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy"
-        ",Print SHIFT,exec,bash video_record"
+
+        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy" # simple screenshot
+        "SHIFT,Print,exec,bash video_record" # start recording
+        "SUPER SHIFT,Print,exec,pkill --signal 15 wf-recorder" # stop recording
+
         "SUPER SHIFT,Q,killactive,"
         "SUPER SHIFT,E,exit,"
 

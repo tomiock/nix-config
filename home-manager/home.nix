@@ -43,6 +43,7 @@
   home.packages = [
     pkgs.vesktop
     pkgs.vlc
+    pkgs.jellyfin-ffmpeg
     pkgs.uv
     pkgs.tmate
     pkgs.obsidian
