@@ -28,7 +28,7 @@ in
 
       ffmpeg -i "$HOME/Videos/''${output_file}.mkv" -c:v libx264 -crf 20 -vf format=yuv420p "$HOME/Videos/''${output_file}.mp4"
 
-      rm "$HOME/Videos/''${output_file}.mkv"
+      #rm "$HOME/Videos/''${output_file}.mkv"
 
       notify-send "video stored"
     ''
