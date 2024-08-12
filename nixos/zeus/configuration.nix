@@ -123,15 +123,27 @@
 
   users.users.nixremote = {
     description = "nix remote builder";
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    isSystemUser = true;
+    createHome = false;
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNG3suP9wJk8IgVLxx1k5vjdH5KyJIk5yI3cJ2cLuuH tomiock@atenea"
+      #"ssh-ed25519 AAAAC3NZaC1lZDI1NTE5AAAAINRFN/t13rzC9b10hnFeXUMIaIM8Do0oAZ5h8+nT8/kP root@atenea" 
+    ];
+
+    uid = 500;
+    group = "nixremote";
+    useDefaultShell = true;
   };
+
+  users.groups.nixremote = {
+    gid = 500;
+  };
+
+  nix.settings.trusted-users = ["nixremote"];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
-
-  nix.settings.trusted-users = ["nixremote"];
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"

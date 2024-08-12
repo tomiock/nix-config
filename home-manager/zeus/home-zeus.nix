@@ -16,6 +16,12 @@
     ../neovim.nix
   ];
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   home = {
     username = "tomiock";
     homeDirectory = "/home/tomiock";
@@ -29,11 +35,11 @@
       #splash_offset = 2.0;
 
       preload =
-        ["~/Pictures/wallpaper.jpg"];
+        ["~/personal/wallpaper.jpg"];
 
       wallpaper = [
-        "eDP-1,~/Pictures/wallpaper.jpg"
-        "DP-1,~/Pictures/wallpaper.jpg"
+        "eDP-1,~/personal/wallpaper.jpg"
+        "DP-1,~/personal/wallpaper.jpg"
       ];
     };
   };

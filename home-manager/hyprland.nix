@@ -35,24 +35,6 @@ in
     )
   ];
 
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      ipc = "off";
-      splash = true;
-      #splash_offset = 2.0;
-
-      preload =
-        ["~/Pictures/wallpaper.jpg"];
-
-      wallpaper = [
-        "eDP-1,~/Pictures/wallpaper.jpg"
-        "DP-1,~/Pictures/wallpaper.jpg"
-      ];
-    };
-  };
-
-
   # enable in NixOS config also (programs.hyprland.enable = true)
   wayland.windowManager.hyprland = {
     enable = true;
