@@ -27,6 +27,7 @@
     pkgs.eog # IMAGES
     pkgs.kdePackages.kdenlive
     pkgs.gimp
+    pkgs.parsec-bin
     # pkgs.obsidian-export
   ];
 

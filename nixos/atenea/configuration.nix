@@ -36,7 +36,7 @@
   programs.hyprland.enable = true;
   programs.sway.enable = true;
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     #driSupport = true;
     #driSupport32Bit = true;
@@ -69,11 +69,10 @@
   networking.hostName = "atenea"; # Define your hostname.
 
   nix.buildMachines = [{
-    hostName = "zeus";
+    hostName = "nixremote@zeus";
     system = "x86_64-linux";
 
-    sshKey = "/root/.ssh/nixremote";
-    sshUser = "nixremote";
+    sshKey = "/home/tomiock/.ssh/nixremote";
 
     protocol = "ssh-ng";
     maxJobs = 12;
@@ -87,13 +86,19 @@
     builders-use-substitutes = true
   '';
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+
+  programs.ssh.extraConfig = ''
+Host zeus
+    Port 22
+    User nixremote
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/nixremote
+  '';
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
@@ -197,9 +202,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
