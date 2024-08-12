@@ -121,6 +121,16 @@
     packages = with pkgs; [ ];
   };
 
+  users.users.nixremote = {
+    description = "nix remote builder";
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
+  # Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
+
   nix.settings.trusted-users = ["nixremote"];
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -180,9 +190,6 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
