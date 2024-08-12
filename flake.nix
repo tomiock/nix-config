@@ -2,8 +2,8 @@
   description = "My flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,6 @@
   outputs =
     { self
     , nixpkgs
-    , nixpkgs-unstable
     , home-manager
     , ...
     } @ inputs:
@@ -38,6 +37,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
+
       nixosConfigurations = {
         zeus = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };

@@ -18,6 +18,12 @@
     ../neovim.nix
   ];
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   home = {
     username = "tomiock";
     homeDirectory = "/home/tomiock";
