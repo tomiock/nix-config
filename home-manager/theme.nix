@@ -51,7 +51,7 @@
     };
 
     iconTheme = {
-      package = pkgs.adwaita-icon-theme;
+      package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
     };
   };

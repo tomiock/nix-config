@@ -14,7 +14,11 @@
     ./sway.nix
   ];
 
-  home.enableNixpkgsReleaseCheck = false;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   home.packages = [
     pkgs.vesktop
@@ -24,7 +28,7 @@
     pkgs.tmate
     pkgs.obsidian
     pkgs.papers # PDF
-    pkgs.eog # IMAGES
+    pkgs.gnome.eog # IMAGES
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     # pkgs.obsidian-export
