@@ -37,8 +37,8 @@
 
   services.mako = with config.colorScheme.palette; {
     enable = true;
-    backgroundColor = "#${base01}";
-    borderColor = "#${purple}";
+    backgroundColor = "#000000";
+    borderColor = "#0c0c0c";
     borderRadius = 5;
     borderSize = 2;
     textColor = "#${base04}";
