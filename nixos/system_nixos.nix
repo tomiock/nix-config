@@ -11,16 +11,20 @@
 
     config = {
       keymap = [
+      /*
         {
           name = "arrow-key";
           remap = {
             alt-j = "down";
           };
         }
+      */
+        /*
         {
           name = "apps";
           remap.alt-f.lauch = [ "pavucontrol" ];
         }
+        */
       ];
     };
   };

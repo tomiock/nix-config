@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../system_nixos.nix
       inputs.home-manager.nixosModules.home-manager
     ];
   nixpkgs = {
@@ -50,9 +51,9 @@
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-kde
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-wlr
+    #xdg-desktop-portal-kde
+    #xdg-desktop-portal-gtk
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

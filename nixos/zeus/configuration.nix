@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../system_nixos.nix
       inputs.home-manager.nixosModules.home-manager
     ];
   nixpkgs = {
@@ -42,17 +43,19 @@
     #driSupport32Bit = true;
   };
 
+  /*
   xdg.portal = {
     wlr = {
       enable = true;
     };
   };
+  */
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-kde
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-wlr
+    #xdg-desktop-portal-kde
+    #xdg-desktop-portal-gtk
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -107,8 +110,8 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    #alsa.enable = true;
+    #alsa.support32Bit = true;
     pulse.enable = true;
   };
 
@@ -128,7 +131,7 @@
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNG3suP9wJk8IgVLxx1k5vjdH5KyJIk5yI3cJ2cLuuH tomiock@atenea"
-      #"ssh-ed25519 AAAAC3NZaC1lZDI1NTE5AAAAINRFN/t13rzC9b10hnFeXUMIaIM8Do0oAZ5h8+nT8/kP root@atenea" 
+      "ssh-ed25519 AAAAC3NZaC1lZDI1NTE5AAAAINRFN/t13rzC9b10hnFeXUMIaIM8Do0oAZ5h8+nT8/kP root@atenea" 
     ];
 
     uid = 500;
