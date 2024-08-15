@@ -15,6 +15,8 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
+    xremap-flake.url = "github:xremap/nix-flake";
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
