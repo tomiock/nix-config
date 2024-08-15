@@ -57,7 +57,8 @@ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
         ];
 
       input = {
-        kb_layout = "us";
+        kb_layout = "us,es";
+        kb_options = "grp:caps_toggle";
         follow_mouse = 1;
         touchpad.natural_scroll = "no";
       };
