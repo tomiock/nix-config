@@ -6,6 +6,8 @@ in
   home.packages = [
     pkgs.networkmanagerapplet
     pkgs.brightnessctl
+    pkgs.hyprshot
+    pkgs.hyprpicker
 
     (pkgs.writeShellScriptBin "start_hyprland"
       ''
@@ -123,7 +125,7 @@ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
       bind = [
         "SUPER,RETURN,exec,alacritty"
 
-        ",Print,exec,grim -g \"$(slurp -d)\" - | wl-copy" # simple screenshot
+        ",Print,exec,hyprshot -m region -z --clipboard-only" # simple screenshot
         "SHIFT,Print,exec,bash video_record" # start recording
         "SUPER SHIFT,Print,exec,pkill --signal 15 wf-recorder" # stop recording
 

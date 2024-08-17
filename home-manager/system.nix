@@ -29,6 +29,8 @@
     pkgs.gimp
     pkgs.parsec-bin
     # pkgs.obsidian-export
+
+    pkgs.google-chrome
   ];
 
   programs.bottom = {
@@ -38,7 +40,7 @@
   services.mako = with config.colorScheme.palette; {
     enable = true;
     backgroundColor = "#000000";
-    borderColor = "#0c0c0c";
+    borderColor = "#595959";
     borderRadius = 5;
     borderSize = 2;
     textColor = "#${base04}";

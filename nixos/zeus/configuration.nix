@@ -196,6 +196,9 @@
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
 
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
