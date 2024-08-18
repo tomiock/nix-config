@@ -174,7 +174,6 @@ Host zeus
 
     # System
     dmenu
-    rofi-wayland
     grim
     slurp
     swaylock

@@ -28,6 +28,8 @@
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     pkgs.parsec-bin
+    pkgs.rofi-wayland
+    pkgs.discord
     # pkgs.obsidian-export
 
     pkgs.google-chrome
@@ -46,4 +48,5 @@
     textColor = "#${base04}";
     layer = "overlay";
   };
+
 }

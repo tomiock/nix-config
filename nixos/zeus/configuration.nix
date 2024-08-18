@@ -55,7 +55,7 @@
     xdg-desktop-portal-hyprland
     #xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
-    #xdg-desktop-portal-gtk
+    xdg-desktop-portal-gtk
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -176,7 +176,6 @@
 
     # System
     dmenu
-    rofi-wayland
     grim
     slurp
     swaylock
