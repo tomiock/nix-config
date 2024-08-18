@@ -30,8 +30,6 @@
     pkgs.gimp
     pkgs.parsec-bin
     pkgs.rofi-wayland
-    pkgs.discord
-    # pkgs.obsidian-export
 
     pkgs.google-chrome
   ];

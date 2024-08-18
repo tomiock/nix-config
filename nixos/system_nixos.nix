@@ -5,6 +5,8 @@
     inputs.xremap-flake.nixosModules.default
   ];
 
+  programs.hyprland.xwayland.enable = true;
+
   xdg.mime.defaultApplications = {
     "image/jpg" = [ "eog.desktop" ];
     "image/png" = [ "eog.desktop" ];

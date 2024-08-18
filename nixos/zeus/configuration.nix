@@ -34,8 +34,13 @@
     };
   };
 
-  programs.hyprland.enable = true;
-  programs.sway.enable = true;
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  hardware.cpu.amd.ryzen-smu.enable = true;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   hardware.graphics = {
     enable = true;
@@ -43,13 +48,8 @@
     #driSupport32Bit = true;
   };
 
-  /*
-  xdg.portal = {
-    wlr = {
-      enable = true;
-    };
-  };
-  */
+  programs.hyprland.enable = true;
+  programs.sway.enable = true;
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
@@ -62,10 +62,6 @@
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -159,6 +155,10 @@
     firefox
     #obsidian # disable GPU acc
 
+    # hardware
+    ryzen-monitor-ng # usage 'sudo ryzen_monitor'
+    microcodeAmd
+
     # Dev Utils
     git
     bottom
@@ -194,9 +194,6 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
-
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
