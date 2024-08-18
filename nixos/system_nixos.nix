@@ -5,6 +5,12 @@
     inputs.xremap-flake.nixosModules.default
   ];
 
+  xdg.mime.defaultApplications = {
+    "image/jpg" = [ "eog.desktop" ];
+    "image/png" = [ "eog.desktop" ];
+    "application/pdf" = [ "papers.desktop" ];
+  };
+
   services.xremap = {
     userName = "tomiock";
     withWlroots = true;

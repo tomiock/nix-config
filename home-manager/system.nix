@@ -25,6 +25,7 @@
     pkgs.obsidian
     pkgs.papers # PDF
     pkgs.eog # IMAGES
+    pkgs.nautilus # FILES
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     pkgs.parsec-bin
@@ -48,5 +49,4 @@
     textColor = "#${base04}";
     layer = "overlay";
   };
-
 }
