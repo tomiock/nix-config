@@ -47,6 +47,7 @@
     pkgs.uv
     pkgs.tmate
     pkgs.obsidian
+    pkgs.nautilus
     pkgs.papers # PDF
     pkgs.gnome.eog # IMAGES
     pkgs.kdePackages.kdenlive
