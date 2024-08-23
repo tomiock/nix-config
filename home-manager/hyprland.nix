@@ -130,7 +130,7 @@ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
         "SUPER SHIFT,Print,exec,pkill --signal 15 wf-recorder" # stop recording
 
         "SUPER SHIFT,Q,killactive,"
-        "SUPER SHIFT,E,exit,"
+        ''SUPER SHIFT,E,exec,exec swaynag -t warning -m "You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session." -B "Yes, exit sway" "swaymsg exit"''
 
         "SUPER,S,togglefloating,"
         "SUPER,S,centerwindow,"

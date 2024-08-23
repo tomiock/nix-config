@@ -116,7 +116,7 @@
   users.users.tomiock = {
     isNormalUser = true;
     description = "tomiock";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
   };
 
@@ -173,6 +173,7 @@
     cargo
     rustup
     python3
+    qemu
 
     # System
     dmenu
