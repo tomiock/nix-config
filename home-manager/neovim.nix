@@ -13,6 +13,7 @@
     pkgs.luajitPackages.lua-lsp
     pkgs.rust-analyzer
     pkgs.gopls
+    pkgs.pyright
 
     pkgs.libcaca # SURF
     pkgs.mplayer #
