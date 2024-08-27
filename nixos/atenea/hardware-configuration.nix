@@ -18,9 +18,11 @@
       fsType = "ext4";
     };
 
+  /*
   swapDevices = [
     { device = "/dev/nvme0n1p4/"; }
   ];
+  */
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/B5B7-B895";
