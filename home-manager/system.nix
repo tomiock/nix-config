@@ -23,9 +23,11 @@
     pkgs.uv
     pkgs.tmate
     pkgs.obsidian
+
     pkgs.papers # PDF
     pkgs.eog # IMAGES
-    pkgs.nautilus # FILES
+    pkgs.xfce.thunar # FILES
+
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     pkgs.parsec-bin
@@ -47,4 +49,8 @@
     textColor = "#${base04}";
     layer = "overlay";
   };
+
+  programs.ranger.enable = true;
+  xdg.configFile."ranger/rifle.conf".source = ./rifle.conf;
+
 }

@@ -34,8 +34,25 @@
     };
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ ];
+
+  programs.dconf.enable = true;
+
   programs.hyprland.enable = true;
-  programs.sway.enable = true;
+  #programs.sway.enable = true;
+
+  /*
+  services.xserver.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    konsole
+    oxygen
+  ];
+  */
 
   hardware.graphics = {
     enable = true;
@@ -51,9 +68,9 @@
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    #xdg-desktop-portal-wlr
+    xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
-    #xdg-desktop-portal-gtk
+    xdg-desktop-portal-gtk
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -193,6 +210,15 @@ Host zeus
     libnotify
     filelight
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  programs.steam.gamescopeSession.enable = true;
 
   virtualisation.docker.enable = true;
 

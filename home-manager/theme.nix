@@ -42,6 +42,11 @@
     size = 16;
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+  };
+
   gtk = {
     enable = true;
 
@@ -54,10 +59,17 @@
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
-  };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
   };
 }

@@ -7,12 +7,6 @@
 
   programs.hyprland.xwayland.enable = true;
 
-  xdg.mime.defaultApplications = {
-    "image/jpg" = [ "eog.desktop" ];
-    "image/png" = [ "eog.desktop" ];
-    "application/pdf" = [ "papers.desktop" ];
-  };
-
   services.xremap = {
     userName = "tomiock";
     withWlroots = true;
