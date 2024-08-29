@@ -52,5 +52,6 @@
 
   programs.ranger.enable = true;
   xdg.configFile."ranger/rifle.conf".source = ./rifle.conf;
+  xdg.configFile."mimeapps.list".source = ./mimeapps.list; # Default apps
 
 }
