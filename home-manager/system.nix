@@ -8,6 +8,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
 
+    ./uni.nix
     ./alacritty.nix
     ./waybar.nix
     ./hyprland.nix
