@@ -42,6 +42,7 @@
       wallpaper = [
         "eDP-1,~/Pictures/wallpaper.jpg"
         "DP-1,~/Pictures/wallpaper.jpg"
+        "HDMI-A-1,~/Pictures/wallpaper.jpg"
       ];
     };
   };

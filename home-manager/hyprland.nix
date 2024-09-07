@@ -44,11 +44,9 @@ in
     systemd.enable = true;
     systemd.variables = [ "--all" ];
 
-    /*
-plugins = [
-inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-];
-*/
+    extraConfig = ''
+      env = WLR_NO_HARDWARE_CURSORS,1
+    '';
 
     settings = {
 
@@ -56,6 +54,7 @@ inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
         [
           ",preferred,auto,auto"
           "desc:Chimei Innolux Corporation 0x1552,preferred,auto-down,1"
+          "desc:Dell Inc. DELL U2715H GH85D4B60FDL,preferred,auto-up,1"
         ];
 
       input = {
