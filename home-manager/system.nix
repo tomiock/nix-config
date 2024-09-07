@@ -35,6 +35,9 @@
     pkgs.rofi-wayland
 
     pkgs.google-chrome
+
+    # TODO: try to find headless version
+    pkgs.libreoffice
   ];
 
   programs.bottom = {

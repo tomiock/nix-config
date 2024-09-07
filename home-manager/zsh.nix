@@ -44,6 +44,9 @@
       pip = "uv";
       open = "papers";
       view = "eog";
+      # transforms and removes pptx files
+      pptx2pdf = "soffice --headless --convert-to pdf *.pptx";
+      pptx2pdf_rm = "soffice --headless --convert-to pdf *.pptx && rm *.pptx";
     };
 
     oh-my-zsh = {
