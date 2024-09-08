@@ -3,6 +3,12 @@
   programs.alacritty = {
     enable = true;
     settings = {
+      font = {
+        normal = { 
+          family = "Hack Nerd Font"; 
+          style = "Regular"; 
+        };
+      };
 
       window = {
         opacity = .70;
@@ -25,7 +31,7 @@
         };
 
         cursor = {
-          cursor = "0x${base04}";
+          cursor = "0x${base02}";
           text = "0x${base05}";
         };
 
@@ -49,6 +55,7 @@
           text = "CellForeground";
           background = "#29263c";
         };
+
       };
     };
   };
