@@ -32,7 +32,8 @@
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     pkgs.parsec-bin
-    pkgs.rofi-wayland
+
+    #pkgs.sublime4-dev
 
     pkgs.google-chrome
 
@@ -54,8 +55,40 @@
     layer = "overlay";
   };
 
+  programs.tofi = {
+    enable = true;
+    settings = {
+      background-color = "#000A";
+      border-width = 0;
+      outline-width = 0;
+      text-color = "#970fff";
+      selection-color = "#61ffca";
+      font = "Hack Nerd Font";
+      height = "100%";
+      width = "100%";
+      num-results = 5;
+      padding-left = "35%";
+      padding-top = "35%";
+      result-spacing = 25;
+    };
+  };
+
   programs.ranger.enable = true;
   xdg.configFile."ranger/rifle.conf".source = ./rifle.conf;
   xdg.configFile."mimeapps.list".source = ./mimeapps.list; # Default apps
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      viktorqvarfordt.vscode-pitch-black-theme
+
+      ms-vscode.cpptools-extension-pack
+      ms-python.python
+      bbenoist.nix
+
+      vscodevim.vim
+      yzhang.markdown-all-in-one
+    ];
+  };
 
 }
