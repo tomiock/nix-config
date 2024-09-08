@@ -116,6 +116,8 @@ in
 
       windowrulev2 = [
         "float, title:(Alacritty)$"
+        "float, title:(File Upload)$"
+        "size 50% 50%, title:(File Upload)$, floating:0"
         "size 50% 98%, class:(Alacritty)(.*)$, floating:0"
         #"move 500, 900, title:(Alacritty)"
         "tile, title:(Alacritty)$"
@@ -134,8 +136,8 @@ in
         "SUPER,S,togglefloating,"
         "SUPER,S,centerwindow,"
 
-        "SUPER,D,exec,rofi -show drun -show-icons"
-        "SUPER SHIFT,D,exec,rofi -show run"
+        "SUPER,D,exec, tofi-drun --drun-launch=true "
+        "SUPER SHIFT,D,exec, tofi-run --drun-launch=true"
         "SUPER,P,pseudo,"
         "SUPER,F,fullscreen"
 
