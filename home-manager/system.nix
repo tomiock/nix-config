@@ -74,8 +74,8 @@
   };
 
   programs.ranger.enable = true;
-  xdg.configFile."ranger/rifle.conf".source = ./rifle.conf;
-  xdg.configFile."mimeapps.list".source = ./mimeapps.list; # Default apps
+  xdg.configFile."ranger/rifle.conf".source = ./extra-files/rifle.conf;
+  xdg.configFile."mimeapps.list".source = ./extra-files/mimeapps.list; # Default apps
 
   programs.vscode = {
     enable = true;
