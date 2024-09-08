@@ -1,25 +1,22 @@
 {
-  outputs,
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+outputs,
+config,
+lib,
+pkgs,
+inputs,
+...
 }: let
   commonDeps = with pkgs; [coreutils gnugrep systemd];
-    mkScript = {
+  mkScript = {
     name ? "script",
     deps ? [],
     script ? "",
-  }:
+    }:
     lib.getExe (pkgs.writeShellApplication {
       inherit name;
       text = script;
       runtimeInputs = commonDeps ++ deps;
     });
-
-  swayCfg = config.wayland.windowManager.sway;
-  hyprlandCfg = config.wayland.windowManager.hyprland;
 in {
   # Let it try to start a few more times
   systemd.user.services.waybar = {
@@ -31,40 +28,41 @@ in {
       mesonFlags = (oa.mesonFlags or []) ++ ["-Dexperimental=true"];
     });
     systemd.enable = true;
+
     settings = {
       primary = {
+
         exclusive = true;
         height = 40;
-        position = "bottom";
-        layer = "bottom";
-        modules-left =
-          ["custom/menu"]
-          ++ (lib.optionals swayCfg.enable [
-            "sway/workspaces"
-            "sway/mode"
-          ])
-          ++ (lib.optionals hyprlandCfg.enable [
-            "hyprland/workspaces"
-            "hyprland/submap"
-          ]);
+        position = "top";
+        layer = "top";
+        mode = "dock";
+        gtk-layer-shell = true;
+
+        modules-left = [
+          "hyprland/workspaces"
+        ];
 
         modules-center = [
-          "cpu"
-          "memory"
+          #"hyprland/window"
           "clock"
-          "battery"
         ];
 
         modules-right = [
-          "network"
-          "pulseaudio"
           "tray"
+          "memory"
+          "cpu"
+          "network"
+          "battery"
+          "backlight"
+          "pulseaudio"
         ];
 
         clock = {
           interval = 1;
+          rotate = 0;
           format = "{:%d/%m %H:%M:%S}";
-          format-alt = "{:%Y-%m-%d %H:%M:%S %z}";
+          format-alt = "{:%d/%m/%Y %H:%M:%S %z}";
           on-click-left = "mode";
           tooltip-format = ''
             <big>{:%Y %B}</big>
@@ -73,10 +71,14 @@ in {
 
         cpu = {
           format = "  {usage}%";
+          interval = 10;
+          format-alt = "{icon0}{icon1}{icon2}{icon3}";
+          format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
         };
+
         memory = {
           format = "  {}%";
-          interval = 5;
+          interval = 8;
         };
 
         pulseaudio = {
@@ -93,6 +95,16 @@ in {
           };
           on-click = lib.getExe pkgs.pavucontrol;
         };
+
+        backlight = {
+          device = "intel_backlight";
+            format = "{icon} {percent}%";
+            format-icons = ["󰃞" "󰃟" "󰃠"];
+            on-scroll-up = "brightnessctl set 1%+";
+            on-scroll-down = "brightnessctl set 1%-";
+            min-length = 6;
+        };
+
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -100,6 +112,7 @@ in {
             deactivated = "󰒲";
           };
         };
+
         battery = {
           bat = "BAT1";
           interval = 10;
@@ -119,9 +132,13 @@ in {
           format-charging = "󰂄 {capacity}%";
           onclick = "";
         };
-        "sway/window" = {
-          max-length = 20;
+
+        "hyprland/workspaces" = {
+          disable-scroll= true;
+          all-outputs= true;
+          on-click= "activate";
         };
+
         network = {
           interval = 3;
           format-wifi = "   {essid}";
@@ -143,93 +160,126 @@ in {
     # x y z -> top, horizontal, bottom
     # w x y z -> top, right, bottom, left
     style =
-        ''
-       * {
-          font-family: Arial, Courier New;
-          font-size: 12pt;
-          padding: 0;
-          margin: 0 0.4em;
-        }
+      ''
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Hack Nerd Font, monospace;
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
 
-        window#waybar {
-          padding: 0;
-          border-radius: 0.5em;
-          background-color: rgba(50, 50, 50, 0.7); /* semi-transparent dark gray */
-          color: #FFFFFF; /* white */
-        }
+window#waybar {
+    background: rgba(100, 18, 27, 0);
+    color: #cdd6f4;
+}
 
-        .modules-left {
-          margin-left: -0.65em;
-        }
+#workspaces button {
+    padding: 5px;
+    color: rgba(151, 15, 255, 1);
+    margin-right: 5px;
+}
 
-        .modules-right {
-          margin-right: -0.65em;
-        }
+/* green number workspace there the cursor is */
+#workspaces button.active {
+    color: rgba(97, 255, 202, 1);
+}
 
-        #workspaces button {
-          background-color: #323232; /* dark gray */
-          color: #FFFFFF; /* white */
-          padding-left: 0.1em;
-          padding-right: 0.1em;
-          margin-left: 0.1em;
-          margin-right: 0.1em;
-          margin-top: 0.15em;
-          margin-bottom: 0.15em;
-        }
+#workspaces button.focused {
+    color: rgba(151, 15, 255, 1);
+    border-radius: 10px;
+}
 
-        #workspaces button.hidden {
-          background-color: #323232; /* dark gray */
-          color: #A0A0A0; /* light gray */
-        }
-        
-        #workspaces button.focused,
-        #workspaces button.active {
-          background-color: #171717; /* dark gray */
-          color: #FFFFFF; /* white */
-        }
+#workspaces button.urgent {
+    color: #11111b;
+    background: #a6e3a1;
+    border-radius: 10px;
+}
 
-        #clock {
-          padding-right: 1em;
-          padding-left: 1em;
-          border-radius: 0.5em;
-        }
+#workspaces button:hover {
+    background: #cdd6f4;
+    color: #11111b;
+    border-radius: 10px;
+}
 
-        #custom-menu {
-          background-color: #2C2C2C; /* darker gray */
-          color: #1E90FF; /* dodger blue */
-          padding-right: 1.5em;
-          padding-left: 1em;
-          margin-right: 0;
-          border-radius: 0.5em;
-        }
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#workspaces,
+#tray,
+#backlight {
+    padding: 0px 10px;
+    margin: 3px 0px;
+    margin-top: 5px;
+    background: rgba(10, 10, 10, .5);
+}
 
-        #custom-menu.fullscreen {
-          background-color: #1E90FF; /* dodger blue */
-          color: #FFFFFF; /* white */
-        }
+#backlight {
+    border-radius: 10px 0px 0px 10px;
+}
 
-        #custom-hostname {
-          background-color: #2C2C2C; /* darker gray */
-          color: #1E90FF; /* dodger blue */
-          padding-right: 1em;
-          padding-left: 1em;
-          margin-left: 0;
-          border-radius: 0.5em;
-        }
+#tray {
+    border-radius: 10px;
+    margin-right: 10px;
+}
 
-        #custom-currentplayer {
-          padding-right: 0;
-        }
+#workspaces {
+    border-radius: 10px;
+    margin-left: 10px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
 
-        #tray {
-          color: #FFFFFF; /* white */
-        }
+#cpu {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
 
-        #custom-gpu, #cpu, #memory {
-          margin-left: 0.05em;
-          margin-right: 0.55em;
-        }
-  '';
+#memory {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#window {
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#clock {
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 5px;
+    border-right: 0px;
+}
+
+#network {
+    border-radius: 10px 0px 0px 10px;
+
+}
+
+#pulseaudio {
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
+
+#pulseaudio.microphone {
+    border-radius: 0px 10px 10px 0px;
+    border-left: 0px;
+    border-right: 0px;
+    margin-right: 5px;
+}
+
+#battery {
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 10px;
+}
+      '';
 
   };
 }
