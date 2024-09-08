@@ -15,32 +15,36 @@
       colors = with config.colorScheme.palette; {
         bright = {
           black = "#4d4d4d";
+          blue = "#70e5ff";
+          cyan = "#95fcda";
+          green = "#8efad6";
+          magenta = "#b04cfc";
+          red = "#ff9191";
+          yellow = "#f4fca4";
+          white = "0x${base06}";
+        };
+
+        cursor = {
+          cursor = "0x${base04}";
+          text = "0x${base05}";
+        };
+
+        normal = {
+          black = "0x${base01}";
           blue = "0x${aqua}";
           cyan = "0x${turquois}";
           green = "0x${green}";
           magenta = "0x${purple}";
           red = "0x${red}";
-          white = "0x${base06}";
+          white = "0x${base05}";
           yellow = "0x${yellow}";
         };
-        cursor = {
-          cursor = "0x${base06}";
-          text = "0x${base06}";
-        };
-        normal = {
-          black = "#110f18";
-          blue = "0x${purple}";
-          cyan = "0x${turquois}";
-          green = "0x${turquois}";
-          magenta = "0x${purple}";
-          red = "0x${red}";
-          white = "0x${base06}";
-          yellow = "0x${yellow}";
-        };
+
         primary = {
           background = "0x${base00}";
           foreground = "0x${base06}";
         };
+
         selection = {
           text = "CellForeground";
           background = "#29263c";

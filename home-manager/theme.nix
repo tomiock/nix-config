@@ -23,13 +23,13 @@
       base05 = "#DEDCDF"; ## ++
       base06 = "#edecee"; ## +++
       base07 = "#edecee"; ## ++++ light
-      orange = "#A92258"; ## orange
+      orange = "#A92258"; ## orange -- (burdeous)
       yellow = "#f3ff85"; ## yellow
-      green = "#61ff7b"; ## poison green
+      green = "#00ffa9"; ## poison green
       turquois = "#61ffca"; ## turquois
       aqua = "#0fd3ff"; ## aqua
       purple = "#970fff"; ## purple
-      pink = "#953B9D"; ## pink
+      pink = "#953B9D"; ## pink -- (violet)
       red = "#ff6767"; ## light red
     };
   };
@@ -47,7 +47,7 @@
     platformTheme.name = "gtk";
   };
 
-  gtk = {
+gtk = {
     enable = true;
 
     theme = {
