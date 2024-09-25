@@ -69,8 +69,8 @@ in
         gaps_in = 5;
         gaps_out = 5;
         border_size = 3;
-        "col.inactive_border" = "rgba(0f0f0faa) rgba(#050000ee) 45deg";
-        "col.active_border" = "rgba(595959aa)";
+        "col.inactive_border" = "rgba(0f0f0f00)";
+        "col.active_border" = " rgba(61ffca55) rgba(970fff55) rgba(970fff55) rgba(00ffa955) 45deg";
         layout = "dwindle";
         allow_tearing = false;
       };
@@ -81,21 +81,25 @@ in
         shadow_render_power = 5;
         "col.shadow" = "0x33000000";
         "col.shadow_inactive" = "0x22000000";
-        rounding = 1;
+        rounding = 10;
       };
 
       animations = {
         enabled = "yes";
 
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = [
+          "myBezier, 0.05, 0.9, 0.1, 1.05"
+          "liner, 1, 1, 1, 1"
+          "wind, 0.05, 0.9, 0.1, 1.05"
+        ];
 
         animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
           "border, 1, 10, default"
-          "borderangle, 1, 8, default"
+          "borderangle, 1, 30, liner, loop"
           "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+          "workspaces, 1, 3, wind"
         ];
       };
 
@@ -115,9 +119,13 @@ in
       ];
 
       windowrulev2 = [
-        "float, title:(Alacritty)$"
         "float, title:(File Upload)$"
         "size 50% 50%, title:(File Upload)$, floating:0"
+
+        "float, title:(Pick Files)$"
+        "size 50% 50%, title:(Pick Files)$, floating:0"
+
+        "float, title:(Alacritty)$"
         "size 50% 98%, class:(Alacritty)(.*)$, floating:0"
         #"move 500, 900, title:(Alacritty)"
         "tile, title:(Alacritty)$"

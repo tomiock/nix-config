@@ -33,11 +33,13 @@ in {
       primary = {
 
         exclusive = true;
-        height = 40;
+        height = 10;
         position = "top";
         layer = "top";
-        mode = "dock";
+        mode = "top";
         gtk-layer-shell = true;
+        spacing = 10;
+        margin = "5 5 0 5";
 
         modules-left = [
           "hyprland/workspaces"
@@ -50,11 +52,11 @@ in {
 
         modules-right = [
           "tray"
+          "backlight"
           "memory"
           "cpu"
           "network"
           "battery"
-          "backlight"
           "pulseaudio"
         ];
 
@@ -141,10 +143,11 @@ in {
 
         network = {
           interval = 3;
-          format-wifi = "   {essid}";
-          format-ethernet = "󰈁 Connected";
+          format-wifi = " ";
+          format-ethernet = "󰈁";
           format-disconnected = "";
           tooltip-format = ''
+            {essid}
             {ifname}
             {ipaddr}/{cidr}
             Up: {bandwidthUpBits}
@@ -170,8 +173,23 @@ in {
     min-height: 0;
 }
 
+.modules-left, .modules-center {
+    opacity: 1;
+    border-radius: 0.5rem;
+    color: rgba(200, 200, 200, 1);
+    background-color: rgba(0,0,0,0.5);
+    padding: 2px;
+}
+
+.modules-right {
+    opacity: 1;
+    color: rgba(200, 200, 200, 1);
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 0.5rem;
+    padding: 5px 5px 5px 10px
+}
+
 window#waybar {
-    background: rgba(100, 18, 27, 0);
     color: #cdd6f4;
 }
 
@@ -181,7 +199,6 @@ window#waybar {
     margin-right: 5px;
 }
 
-/* green number workspace there the cursor is */
 #workspaces button.active {
     color: rgba(200, 200, 200, 1);
 }
@@ -203,29 +220,11 @@ window#waybar {
     border-radius: 10px;
 }
 
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#workspaces,
-#tray,
 #backlight {
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 5px;
-    background: rgba(10, 10, 10, .5);
-}
-
-#backlight {
-    border-radius: 10px 0px 0px 10px;
+    color: #8fbcbb;
 }
 
 #tray {
-    border-radius: 10px;
-    margin-right: 10px;
 }
 
 #workspaces {
@@ -235,49 +234,30 @@ window#waybar {
     padding-left: 5px;
 }
 
-#cpu {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
-}
-
-#memory {
-    border-radius: 10px 0px 0px 10px;
-}
-
-#window {
-    border-radius: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
 #clock {
-    border-radius: 10px 10px 10px 10px;
-    margin-left: 5px;
-    border-right: 0px;
-}
-
-#network {
-    border-radius: 10px 0px 0px 10px;
-
-}
-
-#pulseaudio {
-    border-left: 0px;
-    border-right: 0px;
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
-}
-
-#pulseaudio.microphone {
-    border-radius: 0px 10px 10px 0px;
-    border-left: 0px;
-    border-right: 0px;
-    margin-right: 5px;
+    font-weight: bolder;
+    border-radius: 0.5rem;
+    padding: 0 3px 0 0;
 }
 
 #battery {
-    border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+    color: lightgreen;
+}
+
+#memory {
+    color: lightpink;
+}
+
+#disk {
+    color: lightskyblue;
+}
+
+#cpu {
+    color: lightgoldenrodyellow;
+}
+
+#temperature {
+    color: lightslategray;
 }
 
 /* FINAL CSS*/
