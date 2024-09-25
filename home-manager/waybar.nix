@@ -177,13 +177,13 @@ window#waybar {
 
 #workspaces button {
     padding: 5px;
-    color: rgba(151, 15, 255, 1);
+    color: rgba(100, 100, 100, 1);
     margin-right: 5px;
 }
 
 /* green number workspace there the cursor is */
 #workspaces button.active {
-    color: rgba(97, 255, 202, 1);
+    color: rgba(200, 200, 200, 1);
 }
 
 #workspaces button.focused {
@@ -279,7 +279,8 @@ window#waybar {
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
 }
-      '';
 
+/* FINAL CSS*/
+      '';
   };
 }
