@@ -32,15 +32,21 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
+
+      n = "nvim";
+      N = "nvim";
+
       ls = "exa";
       sl = "exa";
       l = "exa -la";
       la = "exa --all --oneline";
+
       ip = "ip --color=auto";
       c = "clear";
       grep = "rg";
       cat = "bat --style plain";
       cd = "z";
+      cdd = "cd";
       pip = "uv";
       open = "papers";
       view = "eog";

@@ -14,6 +14,7 @@
     pkgs.rust-analyzer
     pkgs.gopls
     pkgs.pyright
+    pkgs.markdown-oxide
 
     pkgs.libcaca # SURF
     pkgs.mplayer #

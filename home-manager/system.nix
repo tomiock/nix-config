@@ -24,6 +24,7 @@
     pkgs.uv
     pkgs.tmate
     pkgs.obsidian
+    pkgs.obs-studio
 
     pkgs.papers # PDF
     pkgs.eog # IMAGES
@@ -47,22 +48,24 @@
 
   services.mako = with config.colorScheme.palette; {
     enable = true;
-    backgroundColor = "#000000";
-    borderColor = "#595959";
+    backgroundColor = "#${base01}";
+    borderColor = "#${turquois}";
     borderRadius = 5;
     borderSize = 2;
     textColor = "#${base04}";
     layer = "overlay";
+
+    defaultTimeout = 2000;
   };
 
   programs.tofi = {
     enable = true;
-    settings = {
+    settings = with config.colorScheme.palette; {
       background-color = "#000A";
       border-width = 0;
       outline-width = 0;
-      text-color = "#970fff";
-      selection-color = "#61ffca";
+      text-color = "#${purple}";
+      selection-color = "#${turquois}";
       font = "Hack Nerd Font";
       height = "100%";
       width = "100%";
@@ -85,6 +88,7 @@
       ms-vscode.cpptools-extension-pack
       ms-python.python
       bbenoist.nix
+      arrterian.nix-env-selector
 
       vscodevim.vim
       yzhang.markdown-all-in-one
