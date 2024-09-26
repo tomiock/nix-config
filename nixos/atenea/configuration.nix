@@ -39,7 +39,11 @@
 
   programs.dconf.enable = true;
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
+
+  programs.hyprland.xwayland.enable = true;
   #programs.sway.enable = true;
 
   /*
@@ -60,20 +64,12 @@
     #driSupport32Bit = true;
   };
 
-  xdg.portal = {
-    wlr = {
-      enable = true;
-    };
-  };
-
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    xdg-desktop-portal-wlr
+    #xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
-    xdg-desktop-portal-gtk
+    #xdg-desktop-portal-gtk
   ];
-
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
@@ -159,6 +155,7 @@ Host zeus
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   console.keyMap = "us";
@@ -179,6 +176,7 @@ Host zeus
     vim
     neovim
     firefox
+    kitty
 
     # Dev Utils
     git

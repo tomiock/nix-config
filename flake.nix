@@ -18,10 +18,12 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     hyprland.url = "github:hyprwm/Hyprland";
+    /*
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    */
   };
 
   outputs =
@@ -42,7 +44,7 @@
 
       nixosConfigurations = {
         zeus = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs ; };
           modules = [
             ./nixos/zeus/configuration.nix
           ];
@@ -50,7 +52,7 @@
         };
 
         atenea = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs ; };
           modules = [
             ./nixos/atenea/configuration.nix
           ];

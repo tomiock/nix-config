@@ -202,7 +202,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: silver;
+  color: lavender;
 }
 
 #workspaces button.focused {
@@ -225,13 +225,13 @@ window#waybar {
 #workspaces {
     border-radius: 10px;
     padding-right: 0px;
-    padding-left: 5px;
+    padding-left: 0px;
 }
 
 #clock {
     font-weight: bolder;
     border-radius: 0.5rem;
-    padding: 0 3px 0 0;
+    padding: 0 6px 0 6px;
 }
 
 #backlight {
