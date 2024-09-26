@@ -36,7 +36,7 @@ in {
         height = 10;
         position = "top";
         layer = "top";
-        mode = "top";
+        mode = "dock";
         gtk-layer-shell = true;
         spacing = 10;
         margin = "5 5 0 5";
@@ -176,52 +176,47 @@ in {
 .modules-left, .modules-center {
     opacity: 1;
     border-radius: 0.5rem;
-    color: rgba(200, 200, 200, 1);
     background-color: rgba(0,0,0,0.5);
     padding: 2px;
 }
 
+.modules-center {
+  color: lavender;
+}
+
 .modules-right {
     opacity: 1;
-    color: rgba(200, 200, 200, 1);
     background-color: rgba(0,0,0,0.5);
     border-radius: 0.5rem;
-    padding: 5px 5px 5px 10px
+    padding: 5px 5px 5px 10px;
+    color: lavender;
 }
 
 window#waybar {
+    background: rgba(100, 18, 27, 0);
     color: #cdd6f4;
 }
 
 #workspaces button {
-    padding: 5px;
-    color: rgba(100, 100, 100, 1);
-    margin-right: 5px;
+    color: dimgrey;
 }
 
 #workspaces button.active {
-    color: rgba(200, 200, 200, 1);
+  color: silver;
 }
 
 #workspaces button.focused {
-    color: rgba(151, 15, 255, 1);
     border-radius: 10px;
 }
 
 #workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
     border-radius: 10px;
+    color: crimson;
+    background-color: rgba(0,0,0,0.5);
 }
 
 #workspaces button:hover {
-    background: #cdd6f4;
-    color: #11111b;
     border-radius: 10px;
-}
-
-#backlight {
-    color: #8fbcbb;
 }
 
 #tray {
@@ -229,7 +224,6 @@ window#waybar {
 
 #workspaces {
     border-radius: 10px;
-    margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
 }
@@ -238,6 +232,10 @@ window#waybar {
     font-weight: bolder;
     border-radius: 0.5rem;
     padding: 0 3px 0 0;
+}
+
+#backlight {
+    color: #8fbcbb;
 }
 
 #battery {
