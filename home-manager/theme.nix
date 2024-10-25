@@ -47,7 +47,7 @@
     platformTheme.name = "gtk";
   };
 
-gtk = {
+  gtk = {
     enable = true;
 
     theme = {

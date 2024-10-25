@@ -35,9 +35,16 @@
   };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader.systemd-boot.enable = true;
+  #boot.loader.efi.canTouchEfiVariables = true;
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.loader.grub = {
+	enable = true;
+        #efiSupport = true;
+        device = "/dev/nvme0n1/";
+        useOSProber = true;
+  };
 
   hardware.cpu.amd.ryzen-smu.enable = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
@@ -187,9 +194,11 @@
     wl-clipboard
     wf-recorder
 
+    pkgs.kdiskmark
+
     qt6.qtwayland
     qt5.qtwayland
-    libsForQt5.qtstyleplugin-kvantum
+    #    libsForQt5.qtstyleplugin-kvantum
 
     pavucontrol
     libnotify

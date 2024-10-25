@@ -13,6 +13,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nil.url = "github:oxalica/nil";
+
     nix-colors.url = "github:misterio77/nix-colors";
 
     xremap-flake.url = "github:xremap/nix-flake";

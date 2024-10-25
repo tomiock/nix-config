@@ -83,7 +83,14 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
+
       viktorqvarfordt.vscode-pitch-black-theme
+
+      ms-toolsai.jupyter
+      ms-toolsai.vscode-jupyter-slideshow
+      ms-toolsai.vscode-jupyter-cell-tags
+      ms-toolsai.jupyter-renderers
+      ms-toolsai.jupyter-keymap
 
       ms-vscode.cpptools-extension-pack
       ms-python.python

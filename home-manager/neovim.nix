@@ -4,10 +4,12 @@
     pkgs.luajitPackages.luarocks
     pkgs.tree-sitter
     pkgs.nodejs_22
+    pkgs.lua
 
     # LSPs
     pkgs.rocmPackages_5.llvm.clang-tools-extra
-    pkgs.nil # TODO: install with flakes
+    inputs.nil.packages.${pkgs.system}.default
+    pkgs.nixfmt-rfc-style
     pkgs.lua-language-server
     pkgs.python311Packages.python-lsp-server
     pkgs.luajitPackages.lua-lsp
