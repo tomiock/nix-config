@@ -34,8 +34,10 @@
     };
   };
 
+  /*
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
+  */
 
   programs.dconf.enable = true;
 
@@ -58,17 +60,19 @@
   ];
   */
 
+  /*
   hardware.graphics = {
     enable = true;
     #driSupport = true;
     #driSupport32Bit = true;
   };
+  */
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
     #xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
-    #xdg-desktop-portal-gtk
+    xdg-desktop-portal-gtk
   ];
 
   users.defaultUserShell = pkgs.zsh;
@@ -91,7 +95,7 @@
     hostName = "nixremote@zeus";
     system = "x86_64-linux";
 
-    sshKey = "/home/tomiock/.ssh/nixremote";
+    sshKey = "/home/tomiock/.ssh/zeus_remote";
 
     protocol = "ssh-ng";
     maxJobs = 12;
@@ -113,8 +117,17 @@ Host zeus
     Port 22
     User nixremote
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/nixremote
+    IdentityFile ~/.ssh/zeus_remote
   '';
+
+  services.borgbackup.jobs.home-tomiock-atenea = {
+    paths = "home/tomiock";
+    encryption.mode = "none";
+    environment.BORG_RSH = "ssh -i tomiock@zeus";
+    repo = "ssh://tomiock@zeus:23/home/tomiock/atenea";
+    compression = "auto,zstd";
+    startAt = "weekly";
+  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -200,6 +213,7 @@ Host zeus
     slurp
     swaylock
     wl-clipboard
+    clipboard-jh
     wf-recorder
 
     qt6.qtwayland
@@ -209,6 +223,10 @@ Host zeus
     pavucontrol
     libnotify
     filelight
+
+    obs-studio
+
+    pika-backup
   ];
 
   programs.steam = {

@@ -11,11 +11,11 @@
     inputs.nil.packages.${pkgs.system}.default
     pkgs.nixfmt-rfc-style
     pkgs.lua-language-server
-    pkgs.python311Packages.python-lsp-server
     pkgs.luajitPackages.lua-lsp
     pkgs.rust-analyzer
     pkgs.gopls
     pkgs.pyright
+    pkgs.ruff
     pkgs.markdown-oxide
 
     pkgs.libcaca # SURF

@@ -121,10 +121,13 @@ in
 
       windowrulev2 = [
         "float, title:(File Upload)$"
-        "size 50% 50%, title:(File Upload)$, floating:0"
+        "size 50% 50%, title:(File Upload)$, floating:1"
+
+        "float, title:(Save As)$"
+        "size 50% 50%, title:(Save As)$, floating:1"
 
         "float, title:(Pick Files)$"
-        "size 50% 50%, title:(Pick Files)$, floating:0"
+        "size 50% 50%, title:(Pick Files)$, floating:1"
 
         "float, title:(Alacritty)$"
         "size 50% 98%, class:(Alacritty)(.*)$, floating:0"

@@ -25,21 +25,27 @@
     pkgs.tmate
     pkgs.obsidian
     pkgs.obs-studio
+    pkgs.pandoc
 
     pkgs.papers # PDF
-    pkgs.eog # IMAGES
+    pkgs.gnome.eog # IMAGES
     pkgs.xfce.thunar # FILES
 
     pkgs.kdePackages.kdenlive
     pkgs.gimp
     pkgs.parsec-bin
-
-    #pkgs.sublime4-dev
+    pkgs.qpdfview
 
     pkgs.google-chrome
 
     # TODO: try to find headless version
     pkgs.libreoffice
+
+    pkgs.quickemu
+    pkgs.minizinc
+    pkgs.minizincide
+
+    pkgs.mpage
   ];
 
   programs.bottom = {

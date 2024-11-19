@@ -60,14 +60,12 @@
 
   programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
-  /*
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    #xdg-desktop-portal-wlr
+    xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
-    #xdg-desktop-portal-gtk
+    xdg-desktop-portal-gtk
   ];
-  */
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -203,6 +201,9 @@
     pavucontrol
     libnotify
     filelight
+
+    quickemu
+    pika-backup
   ];
 
   fonts.packages = with pkgs; [
