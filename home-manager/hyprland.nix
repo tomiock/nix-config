@@ -120,6 +120,9 @@ in
       ];
 
       windowrulev2 = [
+        "float, title:(Select one or more files to open)$"
+        "size 25% 25%, title:(Select one or more files to open)$, floating:0"
+
         "float, title:(File Upload)$"
         "size 50% 50%, title:(File Upload)$, floating:1"
 

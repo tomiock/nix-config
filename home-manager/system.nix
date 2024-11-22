@@ -22,6 +22,7 @@
     pkgs.vlc
     pkgs.jellyfin-ffmpeg
     pkgs.uv
+    pkgs.zip
     pkgs.tmate
     pkgs.obsidian
     pkgs.obs-studio
@@ -85,6 +86,15 @@
   programs.ranger.enable = true;
   xdg.configFile."ranger/rifle.conf".source = ./extra-files/rifle.conf;
   xdg.configFile."mimeapps.list".source = ./extra-files/mimeapps.list; # Default apps
+
+  xdg.desktopEntries = {
+    pika-backup = {
+      name = "Pika Backup";
+      exec = "pika-backup %U";
+      terminal = false;
+      categories = [ "Application" "Utility" ];
+    };
+  };
 
   programs.vscode = {
     enable = true;

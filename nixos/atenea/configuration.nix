@@ -184,6 +184,8 @@ Host zeus
     "electron-25.9.0"
   ];
 
+  home-manager.useGlobalPkgs = true;
+
   environment.systemPackages = with pkgs; [
     home-manager
     vim

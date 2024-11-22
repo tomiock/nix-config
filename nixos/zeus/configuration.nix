@@ -46,6 +46,7 @@
         useOSProber = true;
   };
 
+  zramSwap.enable = true;
   hardware.cpu.amd.ryzen-smu.enable = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
@@ -84,6 +85,8 @@
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  services.tailscale.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Madrid";
 
@@ -115,9 +118,10 @@
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
-    #alsa.enable = true;
-    #alsa.support32Bit = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   console.keyMap = "us";
@@ -135,8 +139,7 @@
     createHome = false;
 
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJNG3suP9wJk8IgVLxx1k5vjdH5KyJIk5yI3cJ2cLuuH tomiock@atenea"
-      "ssh-ed25519 AAAAC3NZaC1lZDI1NTE5AAAAINRFN/t13rzC9b10hnFeXUMIaIM8Do0oAZ5h8+nT8/kP root@atenea" 
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBxElm/HxH90XImKnVnfrNU1su8/chK7jlpXG7HAFjWG tomiock@atenea"
     ];
 
     uid = 500;
@@ -183,6 +186,7 @@
     rustup
     python3
     qemu
+    quickemu
 
     # System
     dmenu

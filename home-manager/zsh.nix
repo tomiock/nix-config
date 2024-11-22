@@ -17,6 +17,13 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+    "$HOME/bin"
+    "$HOME/.nix-profile/bin" #binaries for non-nixOS
+    "$HOME/.nix-profile/share/applications"
+  ];
+
   programs.eza.enable = true;
   programs.zoxide.enable = true;
   programs.zoxide.enableZshIntegration = true;
@@ -69,7 +76,7 @@
       else
         PROMPT='%B%F{magenta}%c%B%F{green}\${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
       fi
-    ";
+      ";
   };
 
   programs.tmux = {
@@ -108,6 +115,27 @@
       s = "status";
       d = "diff";
       ds = "diff --staged";
+    };
+
+    ignores = [
+      "*~"
+      ".cache/"
+      "**/.cache/"
+      ".venv/"
+      "**/.venv/"
+      ".vscode/"
+      "**/.vscode/"
+      ".jukit/"
+      "**/.jukit/"
+      ".ipynb_checkpoints/"
+      "**/.ipynb_checkpoints/"
+      "*.pyc"
+    ];
+
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
 }
