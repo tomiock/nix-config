@@ -41,9 +41,8 @@
 
   programs.dconf.enable = true;
 
-  programs.hyprland = {
-    enable = true;
-  };
+  programs.hyprland.enable = true;
+  programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
   programs.hyprland.xwayland.enable = true;
   #programs.sway.enable = true;
@@ -70,7 +69,7 @@
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
-    #xdg-desktop-portal-wlr
+    xdg-desktop-portal-wlr
     #xdg-desktop-portal-kde
     xdg-desktop-portal-gtk
   ];
@@ -200,6 +199,7 @@ Host zeus
     wget
     tldr
     unzip
+    zip
 
     # Dev
     go
@@ -218,13 +218,15 @@ Host zeus
     clipboard-jh
     wf-recorder
 
-    qt6.qtwayland
-    qt5.qtwayland
-    libsForQt5.qtstyleplugin-kvantum
+    #qt6.qtwayland
+    #qt5.qtwayland
+    #libsForQt5.qtstyleplugin-kvantum
 
     pavucontrol
     libnotify
     filelight
+    kdePackages.kpmcore
+    kdePackages.partitionmanager
 
     obs-studio
 

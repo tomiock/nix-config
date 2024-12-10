@@ -29,7 +29,7 @@
     pkgs.pandoc
 
     pkgs.papers # PDF
-    pkgs.gnome.eog # IMAGES
+    pkgs.eog # IMAGES
     pkgs.xfce.thunar # FILES
 
     pkgs.kdePackages.kdenlive

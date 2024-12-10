@@ -37,12 +37,12 @@
       #splash_offset = 2.0;
 
       preload =
-        ["~/Pictures/wallpaper.jpg"];
+        ["~/Pictures/jinx.webp"];
 
       wallpaper = [
-        "eDP-1,~/Pictures/wallpaper.jpg"
-        "DP-1,~/Pictures/wallpaper.jpg"
-        "HDMI-A-1,~/Pictures/wallpaper.jpg"
+        "eDP-1,~/Pictures/jinx.webp"
+        "DP-1,~/Pictures/jinx.webp"
+        "HDMI-A-1,~/Pictures/jinx.webp"
       ];
     };
   };

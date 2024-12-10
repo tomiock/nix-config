@@ -39,7 +39,6 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-
       n = "nvim";
       N = "nvim";
 
@@ -54,7 +53,6 @@
       cat = "bat --style plain";
       cd = "z";
       cdd = "cd";
-      pip = "uv";
       open = "papers";
       view = "eog";
       # transforms and removes pptx files

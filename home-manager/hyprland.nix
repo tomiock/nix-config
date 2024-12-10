@@ -77,11 +77,12 @@ in
       };
 
       decoration = {
-        drop_shadow = true;
-        shadow_range = 100;
-        shadow_render_power = 5;
-        "col.shadow" = "0x33000000";
-        "col.shadow_inactive" = "0x22000000";
+        #enabled = "yes";
+        #drop_shadow = true;
+        #shadow_range = 100;
+        #shadow_render_power = 5;
+        #"col.shadow" = "rgba*=(00000099";
+        #"col.shadow_inactive" = "0x22000000";
         rounding = 10;
       };
 
