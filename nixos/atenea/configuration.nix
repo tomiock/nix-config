@@ -35,9 +35,9 @@
   };
 
   /*
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [ ];
-  */
+programs.nix-ld.enable = true;
+programs.nix-ld.libraries = with pkgs; [ ];
+*/
 
   programs.dconf.enable = true;
 
@@ -48,24 +48,24 @@
   #programs.sway.enable = true;
 
   /*
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+services.xserver.enable = true;
+services.displayManager.sddm.enable = true;
+services.desktopManager.plasma6.enable = true;
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    konsole
-    oxygen
-  ];
-  */
+environment.plasma6.excludePackages = with pkgs.kdePackages; [
+plasma-browser-integration
+konsole
+oxygen
+];
+*/
 
   /*
-  hardware.graphics = {
-    enable = true;
-    #driSupport = true;
-    #driSupport32Bit = true;
-  };
-  */
+hardware.graphics = {
+enable = true;
+#driSupport = true;
+#driSupport32Bit = true;
+};
+*/
 
   xdg.portal.extraPortals = with pkgs; [
     xdg-desktop-portal-hyprland
@@ -90,23 +90,25 @@
 
   networking.hostName = "atenea"; # Define your hostname.
 
-  nix.buildMachines = [{
-    hostName = "nixremote@zeus";
-    system = "x86_64-linux";
+  /*
+nix.buildMachines = [{
+hostName = "nixremote@zeus";
+system = "x86_64-linux";
 
-    sshKey = "/home/tomiock/.ssh/zeus_remote";
+sshKey = "/home/tomiock/.ssh/zeus_remote";
 
-    protocol = "ssh-ng";
-    maxJobs = 12;
-    speedFactor = 1;
-    supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
-    mandatoryFeatures = [ ];
-  }];
+protocol = "ssh-ng";
+maxJobs = 12;
+speedFactor = 1;
+supportedFeatures = [ "nixos-test" "benchmark" "big-parallel" "kvm" ];
+mandatoryFeatures = [ ];
+}];
 
-  nix.distributedBuilds = true;
-  nix.extraOptions = ''
-    builders-use-substitutes = true
-  '';
+nix.distributedBuilds = true;
+nix.extraOptions = ''
+builders-use-substitutes = true
+'';
+*/
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -176,7 +178,6 @@ Host zeus
     isNormalUser = true;
     description = "tomiock";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [ ];
   };
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -190,7 +191,6 @@ Host zeus
     vim
     neovim
     firefox
-    kitty
 
     # Dev Utils
     git
@@ -207,7 +207,6 @@ Host zeus
     rustup
     gcc
     zig
-    python3
 
     # System
     dmenu
@@ -231,7 +230,13 @@ Host zeus
     obs-studio
 
     pika-backup
-  ];
+  ] /*++ (let
+
+         unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+       in [
+      unstable.ghostty
+    ]); */
+  ;
 
   programs.steam = {
     enable = true;
@@ -248,20 +253,20 @@ Host zeus
     (nerdfonts.override { fonts = [ "Hack" ]; })
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+# Some programs need SUID wrappers, can be configured further or are
+# started in user sessions.
   programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
   };
 
-  # Open ports in the firewall.
+# Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+# networking.firewall.allowedUDPPorts = [ ... ];
+# Or disable the firewall altogether.
+# networking.firewall.enable = false;
 
-  # do NOT CHANGE
+# do NOT CHANGE
   system.stateVersion = "24.05"; # Did you read the comment?
 }

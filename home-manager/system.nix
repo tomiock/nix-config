@@ -47,11 +47,16 @@
     pkgs.minizincide
 
     pkgs.mpage
+    pkgs.imagemagick
+
+    pkgs.jetbrains.pycharm-professional
   ];
 
   programs.bottom = {
     enable = true;
   };
+
+  #services.printing.enable = true;
 
   services.mako = with config.colorScheme.palette; {
     enable = true;
@@ -93,6 +98,14 @@
       exec = "pika-backup %U";
       terminal = false;
       categories = [ "Application" "Utility" ];
+    };
+  };
+
+  programs.kitty = {
+    enable = true;
+    settings = {
+      allow_remote_control = true;
+      enable_audio_bell = false;
     };
   };
 

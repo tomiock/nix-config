@@ -30,6 +30,13 @@
   programs.bat.enable = true;
   programs.ripgrep.enable = true;
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      n = "nvim";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     autocd = true;
@@ -41,6 +48,8 @@
     shellAliases = {
       n = "nvim";
       N = "nvim";
+
+      b = "btm";
 
       ls = "exa";
       sl = "exa";
@@ -82,14 +91,28 @@
     baseIndex = 1;
     keyMode = "vi";
     mouse = true;
-    shortcut = "a";
+    prefix = "C-a";
     sensibleOnTop = true;
 
     extraConfig = ''
 
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+
       bind c new-window -c "#{pane_current_path}"
+
+      # Vi-style pane navigation
+      bind -r H select-pane -L
+      bind -r J select-pane -D
+      bind -r K select-pane -U
+      bind -r L select-pane -R
+
+      bind -n M-Left select-pane -L
+      bind -n M-Right select-pane -R
+      bind -n M-Up select-pane -U
+      bind -n M-Down select-pane -D
 
     '';
   };

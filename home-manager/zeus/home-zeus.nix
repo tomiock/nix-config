@@ -39,6 +39,13 @@
 
       wallpaper = [
         "DP-1,~/Pictures/wallpaper.jpg"
+        "DP-2,~/Pictures/wallpaper.jpg"
+        "DP-3,~/Pictures/wallpaper.jpg"
+        "DP-4,~/Pictures/wallpaper.jpg"
+        "DP-5,~/Pictures/wallpaper.jpg"
+        "DP-6,~/Pictures/wallpaper.jpg"
+        "DP-7,~/Pictures/wallpaper.jpg"
+        "DP-8,~/Pictures/wallpaper.jpg"
         "HDMI-A-1,~/Pictures/wallpaper.jpg"
       ];
     };

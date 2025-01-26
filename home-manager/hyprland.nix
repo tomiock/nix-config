@@ -54,8 +54,10 @@ in
       monitor =
         [
           ",preferred,auto,auto"
-          "desc:Chimei Innolux Corporation 0x1552,preferred,auto-down,1"
-          "desc:Dell Inc. DELL U2715H GH85D4B60FDL,preferred,auto-up,1"
+          "desc:Chimei Innolux Corporation 0x1552,preferred,0x0,1"
+          "desc:Dell Inc. DELL U2715H GH85D4B60FDL,preferred,0x-1440,1"
+          "desc:Dell Inc. DELL U2414H 9TG464CD481L,preferred,2560x-2000,1,transform,3"
+          "desc:Seiko Epson Corporation EPSON PJ 0x01010101,1920x1080,auto-right,1,mirror,ePD-1"
         ];
 
       input = {
@@ -132,6 +134,9 @@ in
 
         "float, title:(Pick Files)$"
         "size 50% 50%, title:(Pick Files)$, floating:1"
+
+        "float, title:(Open Image)$"
+        "size 50% 50%, title:(Open Image)$, floating:1"
 
         "float, title:(Alacritty)$"
         "size 50% 98%, class:(Alacritty)(.*)$, floating:0"

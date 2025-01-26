@@ -184,7 +184,6 @@
     gcc
     cargo
     rustup
-    python3
     qemu
     quickemu
 
