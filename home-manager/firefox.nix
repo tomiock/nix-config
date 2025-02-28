@@ -15,7 +15,7 @@
       search.engines = {
         "Nix Packages" = {
           urls = [{
-            template = "https://search.nixos.org/packages";
+            template = "https://search.nixos.org/packages?channel=unstable";
             params = [
               { name = "type"; value = "packages"; }
               { name = "query"; value = "{searchTerms}"; }
@@ -27,7 +27,7 @@
 
         "Home Manager Options" = {
           urls = [{
-            template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=release-24.05";
+            template = "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
           }];
 
           definedAliases = [ "@mo" ];

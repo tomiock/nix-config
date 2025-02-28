@@ -10,6 +10,8 @@
         };
       };
 
+      general.working_directory = "/home/tomiock/";
+
       window = {
         opacity = .70;
         padding = {

@@ -223,13 +223,14 @@ Host zeus
 
     pavucontrol
     libnotify
-    filelight
     kdePackages.kpmcore
     kdePackages.partitionmanager
 
     obs-studio
 
     pika-backup
+
+    hplip
   ] /*++ (let
 
          unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
@@ -250,7 +251,7 @@ Host zeus
   virtualisation.docker.enable = true;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Hack" ]; })
+    nerd-fonts.hack
   ];
 
 # Some programs need SUID wrappers, can be configured further or are

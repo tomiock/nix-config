@@ -50,6 +50,10 @@
     pkgs.imagemagick
 
     pkgs.jetbrains.pycharm-professional
+
+    pkgs.texstudio
+    pkgs.texliveTeTeX
+    pkgs.gephi
   ];
 
   programs.bottom = {
