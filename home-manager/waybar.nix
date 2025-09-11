@@ -56,6 +56,7 @@ in {
           "memory"
           "cpu"
           "network"
+          #"bluetooth"
           "battery"
           "pulseaudio"
         ];
@@ -141,6 +142,23 @@ in {
           on-click= "activate";
         };
 
+        /*
+        waybar.settings.bluetooth = {
+          enable = true; # Enable the bluetooth module.
+          # controller = "controller1"; # specify the alias of the controller if there are more than 1 on the system
+          format = "󰂯";
+          # format-* handles every state, so default format is not necessary.
+          #format-on = "󰂯";
+          #format-off = "󰂲";
+          #format-disabled = ""; # an empty format will hide the module
+          #format-connected = "󰂱 {num_connections}";
+          # tooltip-format = "{controller_alias}\t{controller_address}";
+          # tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
+          #tooltip-format-connected = "{device_enumerate}";
+          #tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
+        };
+        */
+
         network = {
           interval = 3;
           format-wifi = " ";
@@ -149,8 +167,7 @@ in {
           tooltip-format = ''
             {essid}
             {ifname}
-            {ipaddr}/{cidr}
-            Up: {bandwidthUpBits}
+            {ipaddr}/{cidr} Up: {bandwidthUpBits}
             Down: {bandwidthDownBits}'';
           on-click = mkScript { script = ''ip -o route get to 8.8.8.8 | sed -n "s/.*src \([0-9.]\+\).*/\1/p"| wl-copy''; };
         };

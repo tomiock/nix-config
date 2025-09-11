@@ -34,10 +34,8 @@
     };
   };
 
-  /*
-programs.nix-ld.enable = true;
-programs.nix-ld.libraries = with pkgs; [ ];
-*/
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [ ];
 
   programs.dconf.enable = true;
 
@@ -77,14 +75,38 @@ enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.settings = {
+    battery = {
+      governor = "powersave";
+      turbo = "never";
+    };
+    charger = {
+      governor = "performance";
+      turbo = "auto";
+    };
+  };
+
+  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    dnsovertls = "true";
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  /*
   zramSwap = {
     enable = true;
   };
+  */
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -153,11 +175,22 @@ Host zeus
     LC_TIME = "es_ES.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-gtk
+      fcitx5-chinese-addons
+      fcitx5-nord
+    ];
+  };
+
   # Configure keymap in X11
+  /*
   services.xserver.xkb = {
     layout = "es";
     variant = "";
   };
+  */
 
   services.printing.enable = true;
 
@@ -216,6 +249,7 @@ Host zeus
     wl-clipboard
     clipboard-jh
     wf-recorder
+    blueman
 
     #qt6.qtwayland
     #qt5.qtwayland

@@ -7,7 +7,7 @@
     pkgs.lua
 
     # LSPs
-    pkgs.rocmPackages_5.llvm.clang-tools-extra
+    #pkgs.rocmPackages_5.llvm.clang-tools-extra
     inputs.nil.packages.${pkgs.system}.default
     pkgs.nixfmt-rfc-style
     pkgs.lua-language-server

@@ -29,6 +29,8 @@
     homeDirectory = "/home/tomiock";
   };
 
+  programs.hyprlock.enable = true;
+
   services.hyprpaper = {
     enable = true;
     settings = {

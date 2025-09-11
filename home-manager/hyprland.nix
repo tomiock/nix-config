@@ -58,6 +58,8 @@ in
           "desc:Dell Inc. DELL U2715H GH85D4B60FDL,preferred,0x-1440,1"
           "desc:Dell Inc. DELL U2414H 9TG464CD481L,preferred,2560x-2000,1,transform,3"
           "desc:Seiko Epson Corporation EPSON PJ 0x01010101,1920x1080,auto-right,1,mirror,ePD-1"
+
+          "desc:Dell Inc. DELL P2723DE F5YFH14,preferred,0x-1440,1"
         ];
 
       input = {

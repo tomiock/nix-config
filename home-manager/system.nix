@@ -27,6 +27,8 @@
     pkgs.obsidian
     pkgs.obs-studio
     pkgs.pandoc
+    pkgs.presenterm
+    pkgs.mprocs
 
     pkgs.papers # PDF
     pkgs.eog # IMAGES
@@ -41,6 +43,7 @@
 
     # TODO: try to find headless version
     pkgs.libreoffice
+    pkgs.inkscape-with-extensions
 
     pkgs.quickemu
     pkgs.minizinc
@@ -56,22 +59,20 @@
     pkgs.gephi
   ];
 
-  programs.bottom = {
+ programs.bottom = {
     enable = true;
   };
 
-  #services.printing.enable = true;
-
-  services.mako = with config.colorScheme.palette; {
-    enable = true;
+  services.mako.enable = true;
+  services.mako.settings = with config.colorScheme.palette; {
     backgroundColor = "#${base01}";
-    borderColor = "#${turquois}";
-    borderRadius = 5;
-    borderSize = 2;
-    textColor = "#${base04}";
+    border-color = "#${turquois}";
+    border-radius = 5;
+    border-size = 2;
+    text-color = "#${base04}";
     layer = "overlay";
 
-    defaultTimeout = 2000;
+    default-timeout = 2000;
   };
 
   programs.tofi = {
@@ -105,17 +106,10 @@
     };
   };
 
-  programs.kitty = {
-    enable = true;
-    settings = {
-      allow_remote_control = true;
-      enable_audio_bell = false;
-    };
-  };
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
 
       viktorqvarfordt.vscode-pitch-black-theme
 

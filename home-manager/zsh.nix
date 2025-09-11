@@ -77,7 +77,7 @@
       ];
     };
 
-    initExtra = "
+    initContent = "
       if [[ -n $SSH_CONNECTION ]]; then
         PROMPT='%B%F{magenta}%n@%m %c%B%F{green}\${vcs_info_msg_0_}%B%F{magenta} %{$reset_color%}%% '
       else
@@ -132,6 +132,7 @@
     userEmail = "ockier1@gmail.com";
     aliases = {
       pu = "push";
+      pl = "pull --rebase";
       cm = "commit";
       s = "status";
       d = "diff";

@@ -61,4 +61,21 @@
       };
     };
   };
+
+  programs.kitty = {
+    enable = true;
+    font = {
+      name = "Hack Nerd Font";
+    };
+    settings = {
+      allow_remote_control = true;
+      enable_audio_bell = false;
+
+      background_opacity = "0.70";
+
+      window_padding_width = "2 5";
+
+    };
+  };
+
 }
